@@ -33,8 +33,8 @@ int main()
           if(!strcmp(element_str, uin_str))
           {
            printf("Match found in line %d\n", line_counter);
-           printf("%s\n", line_str);
-           match_notfound_flag = 1;
+           printf("%s", line_str);
+           match_notfound_flag = 0;
           }
           memset(element_str, 0, sizeof element_str);
           element_str_counter = 0;
@@ -56,25 +56,3 @@ int main()
  if(match_notfound_flag)
   printf("Your search %s did not match any entries\n", uin_str);
  }
-
-
-
-
-/*
-while ((c = getc(file)) != EOF)
-{
-  if(c == '\n' || c == '|')
-  {
-    //printf("%s\n", element_str);
-    if(!strcmp(element_str, uin_str))
-     printf("Match found\n");
-    memset(element_str, 0, sizeof element_str);
-    element_str_counter = 0;
-  }
-  else
-  {
-  element_str[element_str_counter]=c;
-  element_str_counter++;
-  //printf("%c", c);
-  }
-*/

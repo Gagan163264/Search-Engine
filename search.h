@@ -1,1 +1,1 @@
-int simple_search(char[], FILE);
+int simple_search(char[], char[], long);

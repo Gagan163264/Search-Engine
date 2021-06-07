@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include<string.h>
 
-#define DATABASE "db2.txt"
+#define DATABASE "db.txt"
 
 
 

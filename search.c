@@ -9,11 +9,13 @@ int simple_search(char uin_str[], char database[], long database_size)
 {
   int i = 0;
   int sentence_count = 1;
-  int file_line;
+  int file_line = 1;
   int word_pos_counter = 0;
   int sentence_pos_counter = 0;
   int match_notfound_flag = 1;
+  int quote_flag = 0;
   int hit_counter = 0;
+  int total_hit_counter = 0;
   char sentence_str[512];
   char word_str[50];
   memset(word_str, 0, sizeof word_str);
@@ -22,20 +24,22 @@ int simple_search(char uin_str[], char database[], long database_size)
 
   while((c = database[i++]) != 0)
   {
-    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n')
+    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'')
     {
       if(!strcmp(word_str, uin_str))
         {
           hit_counter++;
+          total_hit_counter++;
         }
       memset(word_str, 0, sizeof word_str);
       word_pos_counter = 0;
       if(c =='\n')
         file_line++;
-      if(c == WORD_SEPERATOR)
+      if(c == WORD_SEPERATOR || c == '\'' || c == ',')
         sentence_str[sentence_pos_counter++]=c;
       if(c == SENTENCE_SEPERATOR)
       {
+        sentence_str[sentence_pos_counter] = '.';
         if(i>1 && (database[i] == SENTENCE_SEPERATOR || database[i-2] == SENTENCE_SEPERATOR))
         {
           word_str[word_pos_counter++]=c;
@@ -59,11 +63,12 @@ int simple_search(char uin_str[], char database[], long database_size)
     }
     else
     {
-      word_str[word_pos_counter++]=c;
+      //if(word_pos_counter == 0 && c != ' ')
+        word_str[word_pos_counter++]=c;
       sentence_str[sentence_pos_counter++]=c;
     }
-
   }
   if(match_notfound_flag)
-  printf("Your search %s did not match any entries\n", uin_str);
+    printf("Your search %s did not match any entries\n", uin_str);
+  return total_hit_counter;
 }

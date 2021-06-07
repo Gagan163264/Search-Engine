@@ -8,7 +8,7 @@
 
 int main()
 {
-  long database_size = 0;
+  long database_size = 0;   //init
   char *database;
   database = importdb(&database_size);
   //printf("file :%s", database);
@@ -18,6 +18,6 @@ int main()
   fgets(uin_str, INPUT_LIMIT, stdin);
   printf("Running search for: %s", uin_str);
   uin_str[strcspn(uin_str, "\n")] = 0;
-
   simple_search(uin_str, database, database_size);
- }
+
+}

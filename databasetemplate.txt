@@ -1,0 +1,1 @@
+Name||ID||Blood group||SCGPA||Fees paid||Attendance||Behavioural record||Mode of admission

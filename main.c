@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 #include<time.h>
+#include<ctype.h>
+
 #include"databasehandling.h"
 #include"search.h"
 
@@ -18,13 +20,12 @@ int main()
   char uin_str[INPUT_LIMIT];                 // get user input
   printf("Search For: ");
   fgets(uin_str, INPUT_LIMIT, stdin);
-  timer = clock();
   printf("Running search for: %s", uin_str);
   uin_str[strcspn(uin_str, "\n")] = 0;
-
+  timer = clock();
   total_hit_counter = simple_search(uin_str, database, database_size);
   timer = clock() - timer;
   double time = ((double)timer)/(CLOCKS_PER_SEC/1000);
-
   printf("\nSimple search took %.3lf milliseconds to return %d results\n", time, total_hit_counter);
+
 }

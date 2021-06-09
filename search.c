@@ -1,9 +1,19 @@
 #include<stdio.h>
 #include<string.h>
+#include<ctype.h>
 
 #define WORD_SEPERATOR ' '
 #define SENTENCE_SEPERATOR '.'
 
+void tolowerstr(char arr[])
+{
+  int i = 0;
+  while(arr[i] != 0)
+  {
+    arr[i] = tolower(arr[i]);
+    i++;
+  }
+}
 
 int simple_search(char uin_str[], char database[], long database_size)
 {
@@ -21,6 +31,8 @@ int simple_search(char uin_str[], char database[], long database_size)
   memset(word_str, 0, sizeof word_str);
   memset(sentence_str, 0, sizeof sentence_str);
   char c;
+
+  tolowerstr(uin_str);
 
   while((c = database[i++]) != 0)
   {
@@ -42,7 +54,7 @@ int simple_search(char uin_str[], char database[], long database_size)
         sentence_str[sentence_pos_counter] = '.';
         if(i>1 && (database[i] == SENTENCE_SEPERATOR || database[i-2] == SENTENCE_SEPERATOR))
         {
-          word_str[word_pos_counter++]=c;
+          word_str[word_pos_counter++]=tolower(c);
           sentence_str[sentence_pos_counter++]=c;
           continue;
         }
@@ -64,7 +76,7 @@ int simple_search(char uin_str[], char database[], long database_size)
     else
     {
       //if(word_pos_counter == 0 && c != ' ')
-        word_str[word_pos_counter++]=c;
+        word_str[word_pos_counter++]=tolower(c);
       sentence_str[sentence_pos_counter++]=c;
     }
   }

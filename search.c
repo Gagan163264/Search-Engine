@@ -2,8 +2,8 @@
 #include<string.h>
 #include<ctype.h>
 
-#define WORD_SEPERATOR '|'
-#define SENTENCE_SEPERATOR ';' || c == ' '
+#define WORD_SEPERATOR '|' || c == multiplewordin
+#define SENTENCE_SEPERATOR ';'
 
 void tolowerstr(char arr[])
 {
@@ -15,8 +15,11 @@ void tolowerstr(char arr[])
   }
 }
 
-int simple_search(char uin_str[], char database[], long database_size)
+int simple_search(char uin_str[], char database[], long database_size, int multiplewordin_flag)
 {
+  char multiplewordin = 1;
+  if (!multiplewordin_flag)
+    multiplewordin = ' ';
   int i = 0;
   int sentence_count = 1;
   int file_line = 1;
@@ -36,7 +39,7 @@ int simple_search(char uin_str[], char database[], long database_size)
 
   while((c = database[i++]) != 0)
   {
-    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'' || c == ' ')
+    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'')
     {
       if(!strcmp(word_str, uin_str))
         {

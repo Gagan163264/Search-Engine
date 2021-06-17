@@ -15,6 +15,7 @@ int main()
   int start_index = 0;
   int end_index;
   int write = 0;
+  int multiplewordin_flag = 0;
   clock_t timer;
   long database_size = 0;   //init
   char *database;
@@ -37,9 +38,19 @@ int main()
     start_index++;
   }
   uin_str[start_index]=0;
+  start_index = 0;
+  while(start_index<write)
+  {
+    if(uin_str[start_index] == ' ')
+      {
+        multiplewordin_flag = 1;
+        break;
+      }
+      start_index++;
+  }
 
   printf("Running search for: %s\n", uin_str);
-  total_hit_counter = simple_search(uin_str, database, database_size);
+  total_hit_counter = simple_search(uin_str, database, database_size, multiplewordin_flag);
   timer = clock() - timer;
   double time = ((double)timer)/(CLOCKS_PER_SEC/1000000);
   printf("\nSimple search took %.1lf microseconds to return %d results\n", time, total_hit_counter);

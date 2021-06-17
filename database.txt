@@ -22,7 +22,7 @@ Jinal N|PESCV324|A+|Bangalore|7.85|fees paid|75%|bad|PESSAT;
 Kishan S|PESME558|B-|Hyderabad|9.86|fees paid|97%|good|OTHERS;
 Kumarswamy M|PESCS645|AB+|Hyderabad|8.26|fees not paid|76%|good|OTHERS;
 Kunal J|PESEC124|o+|Delhi|8.63|fees paid|84%|good|KCET;
-Nishan E|PEEC887|O-|Hyderabad|8.33|paid|88%|good|KCET;
+Nishan E|PEEC887|O-|Hyderabad|8.33|fees paid|88%|good|KCET;
 Nishanth H|PESEE541|O+|Chennai|9.54|fees paid|85%|good|OTHERS;
 Punya K|PESCS783|A+|Delhi|6.88|fees paid|91%|good|OTHERS;
 Sachith B|PESME712|AB-|Delhi|7.32|fees paid|84%|good|PESSAT;
@@ -48,4 +48,3 @@ Shreyas S|PESCV984|AB+|Kerala|6.87|fees paid|77%|good|OTHERS;
 Mukta M|PESCS983|AB-|Kolkata|8.49|fees paid|80%|good|PESSAT;
 Shyla D|PESCS982|A+|Mangalore|8.72|fees not paid|79%|good|KCET;
 Shymala S|PESME981|B+|Mumbai|9.36|fees paid|82%|good|KCET;
-

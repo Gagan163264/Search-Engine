@@ -2,8 +2,8 @@
 #include<string.h>
 #include<ctype.h>
 
-#define WORD_SEPERATOR ' '
-#define SENTENCE_SEPERATOR '.'
+#define WORD_SEPERATOR '|'
+#define SENTENCE_SEPERATOR ';' || c == ' '
 
 void tolowerstr(char arr[])
 {
@@ -36,7 +36,7 @@ int simple_search(char uin_str[], char database[], long database_size)
 
   while((c = database[i++]) != 0)
   {
-    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'')
+    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'' || c == ' ')
     {
       if(!strcmp(word_str, uin_str))
         {
@@ -63,7 +63,8 @@ int simple_search(char uin_str[], char database[], long database_size)
           printf("\n%d match", hit_counter);
           if(hit_counter > 1)
             printf("es");
-          printf(" found in sentence %d in line %d:\n", sentence_count, file_line);
+          //printf(" found in sentence %d in line %d:\n", sentence_count, file_line);  //to be used in text file
+          printf(" found in line %d:\n",file_line);                                  //to be used in databases(optional)
           printf("%s\n", sentence_str);
           match_notfound_flag = 0;
         }
@@ -75,8 +76,7 @@ int simple_search(char uin_str[], char database[], long database_size)
     }
     else
     {
-      //if(word_pos_counter == 0 && c != ' ')
-        word_str[word_pos_counter++]=tolower(c);
+      word_str[word_pos_counter++]=tolower(c);
       sentence_str[sentence_pos_counter++]=c;
     }
   }

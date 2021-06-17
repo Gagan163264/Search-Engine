@@ -41,7 +41,7 @@ int main()
   printf("Running search for: %s\n", uin_str);
   total_hit_counter = simple_search(uin_str, database, database_size);
   timer = clock() - timer;
-  double time = ((double)timer)/(CLOCKS_PER_SEC/1000);
-  printf("\nSimple search took %.3lf milliseconds to return %d results\n", time, total_hit_counter);
+  double time = ((double)timer)/(CLOCKS_PER_SEC/1000000);
+  printf("\nSimple search took %.1lf microseconds to return %d results\n", time, total_hit_counter);
 
 }

@@ -1,11 +1,15 @@
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
+#include <stdlib.h>
 
-#define WORD_SEPERATOR '|' || c == multiplewordin
+#include"databasehandling.h"
+
+#define WORD_SEPERATOR '|'
 #define SENTENCE_SEPERATOR ';'
+#define INPT_SEPERATOR " "
 
-void tolowerstr(char arr[])
+void tolowerstr(char arr[]) //convert array to lowercase
 {
   int i = 0;
   while(arr[i] != 0)
@@ -15,75 +19,76 @@ void tolowerstr(char arr[])
   }
 }
 
-int simple_search(char uin_str[], char database[], long database_size, int multiplewordin_flag)
+int bin_search(long size, char** db_arr, char cmp_str[]) //binary search in a 2d array
 {
-  char multiplewordin = 1;
-  if (!multiplewordin_flag)
-    multiplewordin = ' ';
-  int i = 0;
-  int sentence_count = 1;
-  int file_line = 1;
-  int word_pos_counter = 0;
-  int sentence_pos_counter = 0;
-  int match_notfound_flag = 1;
-  int quote_flag = 0;
-  int hit_counter = 0;
-  int total_hit_counter = 0;
-  char sentence_str[512];
-  char word_str[50];
-  memset(word_str, 0, sizeof word_str);
-  memset(sentence_str, 0, sizeof sentence_str);
-  char c;
-
-  tolowerstr(uin_str);
-
-  while((c = database[i++]) != 0)
+  long mp;
+  int left = 0;
+  int right = size-1;
+  int cmp;
+  int count = 0;
+  while(left<=right)
   {
-    if(c == WORD_SEPERATOR || c == SENTENCE_SEPERATOR || c == '\n' || c ==',' || c == '\'')
+    count++;
+    mp = (left+right)/2;
+    cmp = strcmp(db_arr[mp], cmp_str);
+    if(cmp == 0)
+      return 0;
+    if(cmp>0)
+      right = mp-1;
+    else
+      left = mp+1;
+  }
+
+  return 1;
+}
+
+char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[])
+{
+  int wcount = 0;
+  char *word;
+  char spacer[] = INPT_SEPERATOR;
+  int word_count = 10;
+  char **uin_wtable = (char **)malloc(word_count * sizeof(char *));
+  word = strtok(raw_uin_str, spacer);
+  while(word != NULL)
+  {
+    if(bin_search(stop_db_size, stop_db_arr, word))    //search for word in stop-word database
     {
-      if(!strcmp(word_str, uin_str))
-        {
-          hit_counter++;
-          total_hit_counter++;
-        }
-      memset(word_str, 0, sizeof word_str);
-      word_pos_counter = 0;
-      if(c =='\n')
-        file_line++;
-      if(c == WORD_SEPERATOR || c == '\'' || c == ',')
-        sentence_str[sentence_pos_counter++]=c;
-      if(c == SENTENCE_SEPERATOR)
+      uin_wtable[wcount]=(char *)calloc(30, sizeof(char));
+      for(int i = 0;word[i]!=0;i++)
       {
-        sentence_str[sentence_pos_counter] = '.';
-        if(i>1 && (database[i] == SENTENCE_SEPERATOR || database[i-2] == SENTENCE_SEPERATOR))
-        {
-          word_str[word_pos_counter++]=tolower(c);
-          sentence_str[sentence_pos_counter++]=c;
-          continue;
-        }
-        if(hit_counter)
-        {
-          printf("\n%d match", hit_counter);
-          if(hit_counter > 1)
-            printf("es");
-          //printf(" found in sentence %d in line %d:\n", sentence_count, file_line);  //to be used in text file
-          printf(" found in line %d:\n",file_line);                                  //to be used in databases(optional)
-          printf("%s\n", sentence_str);
-          match_notfound_flag = 0;
-        }
-        memset(sentence_str, 0, sizeof sentence_str);
-        sentence_count++;
-        sentence_pos_counter=0;
-        hit_counter = 0;
+        if(word[i]>64&&word[i]<91)
+          uin_wtable[wcount][i]=tolower(word[i]);
+        else if(word[i]>96&&word[i]<123)
+          uin_wtable[wcount][i]=word[i];
+        else
+        uin_wtable[wcount][i]=' ';
+      }
+      wcount++;
+      if(wcount>word_count)
+      {
+        word_count = 2*word_count;
+        uin_wtable = (char **)realloc(uin_wtable,  word_count* sizeof(char *));
       }
     }
-    else
+    word = strtok(NULL, spacer);
+  }
+
+  if(wcount == 0)                                       // if no keywords found, copy stop words(failure point)
+  {
+    word = strtok(raw_uin_str, spacer);
+    while(word != NULL)
     {
-      word_str[word_pos_counter++]=tolower(c);
-      sentence_str[sentence_pos_counter++]=c;
+      uin_wtable[wcount]=(char *)calloc(50, sizeof(char));
+      strcpy(uin_wtable[wcount++], word);
+      word = strtok(NULL, spacer);
     }
   }
-  if(match_notfound_flag)
-    printf("Your search %s did not match any entries\n", uin_str);
-  return total_hit_counter;
+
+  if(wcount<word_count)                                 // resize array to fit data
+  {
+    uin_wtable = (char **)realloc(uin_wtable,  (wcount+1)* sizeof(char *));
+  }
+  uin_wtable[wcount+1]=NULL;
+  return uin_wtable;
 }

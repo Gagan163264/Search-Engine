@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include"databasehandling.h"
 
 #define DATABASE "database.txt"
 
 
-
-char* importdb(long *database_size)
+/*Function takes long pointer(used as size output) and char pointer(contains database path) to give char pointer of file contents in RAM*/
+char* importdb_tomem(long *database_size, char *databasedb)
 {
-  FILE *dbfile = fopen(DATABASE, "r");
+  FILE *dbfile = fopen(databasedb, "r");
   fseek(dbfile, 0L, SEEK_END);
   long fsize = ftell(dbfile);
   fseek(dbfile, 0, SEEK_SET);
@@ -18,4 +19,160 @@ char* importdb(long *database_size)
   database[fsize] = 0;
   *database_size = fsize;
   return database;
+}
+
+
+char** import_stopdb_tomem(long *database_size, char *databasedb)
+{
+  FILE *dbfile = fopen(databasedb, "r");
+  fseek(dbfile, 0L, SEEK_END);
+  long fsize = ftell(dbfile);
+  fseek(dbfile, 0, SEEK_SET);
+  char *database = malloc(fsize + 1);
+  fread(database, 1, fsize, dbfile);
+  fclose(dbfile);
+  database[fsize] = 0;
+  int line_count = 0;
+  int line_index = 0;
+  int max_size = 0;
+  int letter_counter = 0;
+  int counter = 0;
+  char c;
+  while((c = database[counter++]) != 0)
+  {
+    if(c == '\n')
+    {
+      line_count++;
+      if(letter_counter>max_size)
+        max_size=letter_counter;
+      letter_counter=0;
+    }
+    else
+      letter_counter++;
+  }
+  max_size++; //0 as termination character
+  *database_size=line_count;
+  char **stop_db_arr = (char **)malloc(line_count * sizeof(char *));
+  for (int i=0; i<line_count; i++)
+         stop_db_arr[i] = (char *)malloc(max_size * sizeof(char));
+
+  letter_counter = 0;
+  counter = 0;
+  while((c = database[counter++]) != 0)
+  {
+    if(c == '\n')
+    {
+      while(letter_counter<max_size)
+          stop_db_arr[line_index][letter_counter++]=0;
+      letter_counter = 0;
+      line_index++;
+    }
+    else
+    stop_db_arr[line_index][letter_counter++]=c;
+  }
+  free(database);
+  return stop_db_arr;
+}
+
+
+struct index_word* import_index_tomem(long *database_size, char *databasedb)
+{
+  FILE *dbfile = fopen(databasedb, "r");
+  fseek(dbfile, 0L, SEEK_END);
+  long fsize = ftell(dbfile);
+  fseek(dbfile, 0, SEEK_SET);
+  char *database = malloc(fsize + 1);
+  fread(database, 1, fsize, dbfile);
+  fclose(dbfile);
+  database[fsize] = 0;
+  int indexc = 0;
+  char c;
+  int elementcount = 0;
+  while((c=database[indexc++])!=0)
+    if(c=='\n')
+      elementcount++;
+  printf("elementcount- %d\n", elementcount);
+  struct index_word* index = (struct index_word*)malloc((elementcount+1) * sizeof(struct index_word));
+  index[elementcount].word=NULL;
+  int indx = 0;
+  indexc = 0;
+  int sepcount = 0;
+  int indexarr = 0;
+  int elementcounter = 0;
+  int element2counter = 0;
+  int lastsep = 0;
+  int substructctr;
+  while((c = database[indx++])!=0)
+  {
+    if(c == '\n'|| indx==1)
+    {
+      if(database[indx]==0)
+        break;
+      indexarr = 0;
+      if(c=='\n')
+        indexc++;
+      substructctr = -1;
+      printf("%d newline\n", indexc);
+      elementcounter = 0;
+      element2counter = 0;
+      sepcount = 0;
+      for(int i = indx+1;(database[i]!='\n' && database[i]!= 0);i++)//declare structure
+        if(database[i]=='|')
+          sepcount++;
+      index[indexc].doc_data = (struct freq_per_doc*)calloc((sepcount-1),sizeof(struct freq_per_doc));
+      index[indexc].doc_data[sepcount-1].docname=NULL;
+      sepcount = 0;
+      for(int i = indx+1;(database[i]!='\n' && database[i]!= 0);i++)//initialize structure
+        if(database[i]=='|')
+        {
+          sepcount++;
+          if(sepcount == 1)
+          {
+            index[indexc].freq_across_docs = 0;
+            index[indexc].word = (char*)calloc(i-indx+1, sizeof(char));
+          }
+          if(sepcount>2&&(sepcount%2)!= 0)
+          {
+            index[indexc].doc_data[(sepcount-3)/2].freq=0;
+            index[indexc].doc_data[(sepcount-3)/2].docname=(char*)calloc((i-lastsep),sizeof(char));
+            printf("vars-%d %d %d\n",indexc, (sepcount-3)/2,i-lastsep);
+          }
+          lastsep = i;
+        }
+      if(sepcount%2 == 0)
+      {
+        printf("Database error at line %d", indexc+2);
+        return NULL;
+      }
+      if(c=='\n')
+        continue;
+    }
+    if(c == '|')
+    {
+      indexarr = 0;
+      elementcounter++;
+      printf("seps %d\n", elementcounter);
+      if(elementcounter%2 == 0)
+      {
+        element2counter=0;
+        substructctr++;
+      }
+      else
+        element2counter=1;
+      continue;
+    }
+    if(elementcounter == 0)
+      index[indexc].word[indexarr++]=c;
+    if(elementcounter == 1)
+      index[indexc].freq_across_docs=10*index[indexc].freq_across_docs+c-'0';
+    if(elementcounter >= 2)
+    {
+      if(element2counter == 0)
+        index[indexc].doc_data[substructctr].docname[indexarr++]=c;
+      if(element2counter == 1)
+      index[indexc].doc_data[substructctr].freq=10*(index[indexc].doc_data[substructctr].freq)+c-'0';
+    }
+    printf("%c %d %d\n", c,elementcounter, element2counter);
+  }
+  return index;
 }

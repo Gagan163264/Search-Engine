@@ -8,6 +8,18 @@ run: main.o
 
 compile: main.o
 
+indexer.o:indexer.c databasehandling.c
+	@gcc -c indexer.c databasehandling.c
+
+crawl:indexer.o
+	@gcc indexer.o databasehandling.o -o crawl.out
+	@chmod 755 crawl.out
+	@./crawl.out
+
 clean:
 		@rm main.o
 		@rm main.out
+		@rm indexer.o
+		@rm crawl.out
+		@rm search.o
+		@rm a.out

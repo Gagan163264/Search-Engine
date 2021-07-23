@@ -15,7 +15,7 @@ int main()
   char stop_db_path[]="SE-db/stop-words.txt";
   char** stop_db_arr=import_stopdb_tomem(&stop_db_size,stop_db_path);
 
-  char raw_uin_str[INPUT_LIMIT]= "Coordinates to tHe hidden temple, where we shall find treasure";
+  char raw_uin_str[INPUT_LIMIT]= "Coordinates to tHe hidden temple, where we shall a find treasure";
   char raw_uin_str_cp[INPUT_LIMIT];
   strcpy(raw_uin_str_cp, raw_uin_str);
   tolowerstr(raw_uin_str_cp);

@@ -19,7 +19,12 @@ void tolowerstr(char arr[]) //convert array to lowercase
   }
 }
 
-int bin_search(long size, char** db_arr, char cmp_str[]) //binary search in a 2d array
+int strcmp_bin(int n, char** db, char* word)
+{
+  return strcmp(db[n], word);
+}
+
+int bin_search(long size, char** db_arr, char cmp_str[], int(*cmp_fn)(int, char**, char*)) //binary search in a 2d array
 {
   long mp;
   int left = 0;
@@ -30,16 +35,15 @@ int bin_search(long size, char** db_arr, char cmp_str[]) //binary search in a 2d
   {
     count++;
     mp = (left+right)/2;
-    cmp = strcmp(db_arr[mp], cmp_str);
+    cmp = (*cmp_fn)(mp, db_arr, cmp_str);
     if(cmp == 0)
-      return 0;
+      return -mp-1;
     if(cmp>0)
       right = mp-1;
     else
       left = mp+1;
   }
-
-  return 1;
+  return mp;
 }
 
 char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[])
@@ -52,7 +56,7 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   word = strtok(raw_uin_str, spacer);
   while(word != NULL)
   {
-    if(bin_search(stop_db_size, stop_db_arr, word))    //search for word in stop-word database
+    if(bin_search(stop_db_size, stop_db_arr, word, strcmp_bin)>=0)    //search for word in stop-word database
     {
       uin_wtable[wcount]=(char *)calloc(30, sizeof(char));
       for(int i = 0;word[i]!=0;i++)

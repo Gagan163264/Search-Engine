@@ -91,7 +91,6 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
   while((c=database[indexc++])!=0)
     if(c=='\n')
       elementcount++;
-  printf("elementcount- %d\n", elementcount);
   struct index_word* index = (struct index_word*)malloc((elementcount+1) * sizeof(struct index_word));
   index[elementcount].word=NULL;
   int indx = 0;
@@ -112,7 +111,6 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       if(c=='\n')
         indexc++;
       substructctr = -1;
-      printf("%d newline\n", indexc);
       elementcounter = 0;
       element2counter = 0;
       sepcount = 0;
@@ -135,7 +133,6 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
           {
             index[indexc].doc_data[(sepcount-3)/2].freq=0;
             index[indexc].doc_data[(sepcount-3)/2].docname=(char*)calloc((i-lastsep),sizeof(char));
-            printf("vars-%d %d %d\n",indexc, (sepcount-3)/2,i-lastsep);
           }
           lastsep = i;
         }
@@ -151,7 +148,6 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
     {
       indexarr = 0;
       elementcounter++;
-      printf("seps %d\n", elementcounter);
       if(elementcounter%2 == 0)
       {
         element2counter=0;
@@ -172,7 +168,6 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       if(element2counter == 1)
       index[indexc].doc_data[substructctr].freq=10*(index[indexc].doc_data[substructctr].freq)+c-'0';
     }
-    printf("%c %d %d\n", c,elementcounter, element2counter);
   }
   return index;
 }

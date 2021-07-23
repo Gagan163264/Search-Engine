@@ -10,7 +10,7 @@
 
 int main(void)
 {
-  FILE *fptr;
+  FILE *fptr;  //declarations
   int check_txt, path_append;
   char c;
   char* dot;
@@ -46,6 +46,7 @@ int main(void)
   int nlcount = 0;
   int strindex;
   int laststrindex;
+  
   while ((de = readdir(dr)) != NULL)
   {
     check_txt = 0;   //check if file has extension of 'txt' or 'csv'

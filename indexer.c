@@ -19,6 +19,9 @@ int main(void)
   char index_path[]="SE-db/index.txt";
   char stop_db_path[]="SE-db/stop-words.txt";
 
+  long stop_size;
+  char** stop_db_arr = import_stopdb_tomem(&stop_size, stop_db_path);
+
   DIR *dr = opendir("source");
   if (dr == NULL)  // opendir returns NULL if couldn't open directory
   {
@@ -46,7 +49,7 @@ int main(void)
   int nlcount = 0;
   int strindex;
   int laststrindex;
-  
+
   while ((de = readdir(dr)) != NULL)
   {
     check_txt = 0;   //check if file has extension of 'txt' or 'csv'
@@ -76,10 +79,18 @@ int main(void)
       nlcount = 0;
       while(rword[endword]!=0)
       {
+        if(rword[endword]=='.'&&rword[endword+1]=='.')
+        {
+          beginword=endword;
+          while(rword[endword++]=='.')
+          rword[beginword+((endword-beginword)/2)]='\n';
+          endword = beginword;
+        }
         if(rword[endword] == '\n')
           nlcount++;
         endword++;
       }
+      beginword = 0;
       endword =0;
       strindex = 0;
       laststrindex = 0;
@@ -114,7 +125,8 @@ int main(void)
             word[i]=tolower(raw_word[beginword+i]);
         word[endword-beginword+1]=0;
 
-        printf("%s\n\n", word);  //whatever with word here
+        if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>0)
+          printf("%s\n\n", word);  //whatever with word here
 
         free(word);
         free(raw_word);

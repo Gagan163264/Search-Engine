@@ -96,3 +96,10 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   uin_wtable[wcount+1]=NULL;
   return uin_wtable;
 }
+
+
+char* porter_stemmer(char* word)
+{
+
+
+}

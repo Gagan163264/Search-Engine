@@ -93,13 +93,31 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   {
     uin_wtable = (char **)realloc(uin_wtable,  (wcount+1)* sizeof(char *));
   }
-  uin_wtable[wcount+1]=NULL;
+  uin_wtable[wcount]=NULL;
   return uin_wtable;
 }
 
+int is_vowel(char* word, int index)
+{
+  if(!isalpha(word[index]))
+    return -1;
+  char c = word[index];
+  if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+    return 1;
+  if(!index)
+    return 0;
+  char d = word[index-1];
+  if(index>0&&c == 'y'&&!(d=='a'||d=='e'||d=='i'||d=='o'||d=='u'))
+    return 1;
+  return 0;
+}
 
 char* porter_stemmer(char* word)
 {
-
-
+  int index =0;
+  while(word[index])
+  {
+    printf("(%c||%d)", word[index], is_vowel(word,index));
+    index++;
+  }
 }

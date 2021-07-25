@@ -32,8 +32,9 @@ int main(void)
 
   long size_index;             //import index structure
   struct index_word* index = import_index_tomem(&size_index, index_path);
-  printf("\n\n");
   printf("%s||%d||(%s||%d)\n", index[1].word, index[1].freq_across_docs, index[1].doc_data[1].docname, index[1].doc_data[1].freq);
+  printf("\n\n");
+
 
   //vars used inside while
   long size_d;
@@ -43,12 +44,19 @@ int main(void)
   char sepcm[] = ",";
   char* raw_word;
   char* rword;
+  char* oword;
   char* word;
   int endword = 0;
   int beginword = 0;
   int nlcount = 0;
   int strindex;
   int laststrindex;
+  int hypindex;
+  int hypcount;
+  int startvar;
+  int endvar;
+  int contrindex;
+  int contadd;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -72,21 +80,25 @@ int main(void)
 
     char* fle = importdb_tomem(&size_d, fpath);
     rword = strtok(fle, sep);
+
+    char ch;
     while(rword != NULL )
     {
       endword =0;
       beginword = 0;
       nlcount = 0;
-      while(rword[endword]!=0)
+      while((ch = rword[endword]))
       {
-        if(rword[endword]=='.'&&rword[endword+1]=='.')
+        if(ch=='+'||ch=='<'||ch=='>'||ch=='^')//https://docs.oracle.com/cd/E29584_01/webhelp/mdex_basicDev/src/cbdv_searchchar_indexing_non-alphanumeric_characters.html
+          rword[endword]='\n';
+        if(rword[endword]=='.'&&rword[endword+1]=='.')//detect ellipses
         {
           beginword=endword;
           while(rword[endword++]=='.')
           rword[beginword+((endword-beginword)/2)]='\n';
           endword = beginword;
         }
-        if(rword[endword] == '\n')
+        if(rword[endword] == '\n')//count newlines
           nlcount++;
         endword++;
       }
@@ -96,7 +108,7 @@ int main(void)
       laststrindex = 0;
       while(nlcount>=0)
       {
-        while(rword[strindex]!='\n'&&rword[strindex]!=0)
+        while(rword[strindex]!='\n'&&rword[strindex])
           strindex++;
         if(rword[strindex]=='\n'&&rword[strindex+1]==0)
           nlcount=-1;
@@ -111,24 +123,75 @@ int main(void)
           nlcount=-1;
         strindex++;
 
-        while(raw_word[endword]!=0)
+        while(raw_word[endword])
           endword++;
-        while((raw_word[beginword]!=0)&&(!isalnum(raw_word[beginword])))
+        while((raw_word[beginword])&&(!isalnum(raw_word[beginword]))&&strcmp(sep,"csv"))
           beginword++;
         if(beginword==endword)
           break;
         endword--;
-        while(((endword)>=0)&&(!isalnum(raw_word[endword])))
+        while(((endword)>=0)&&(!isalnum(raw_word[endword]))&&strcmp(sep,"csv"))
           endword--;
-        word = (char*)malloc((endword-beginword+2)*sizeof(char));
+        hypcount = 0;
+        hypindex = 0;
         for(int i = 0;i<=endword;i++)
-            word[i]=tolower(raw_word[beginword+i]);
-        word[endword-beginword+1]=0;
+          if(raw_word[beginword+i]=='-'&&strcmp(sep,"csv"))
+          {
+            hypcount++;
+            hypindex=i;
+          }
+        if(hypcount!=1)
+          hypindex=endword;
+        hypcount = (hypcount==1)?3:1;
+        while(hypcount>0)
+        {
+          if(hypcount==1)
+          {
+            startvar=beginword;
+            endvar=endword;
+          }
+          else if(hypcount==3)
+          {
+            startvar = beginword;
+            endvar=hypindex-1;
+          }
+          else if(hypcount==2)
+          {
+            startvar = hypindex+1;
+            endvar=endword;
+          }
 
-        if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>0)
-          printf("%s\n\n", word);  //whatever with word here
+          contadd = 0;
+          contrindex = 0;
+          for(int i = endvar;i>=0;i--)
+            if(raw_word[startvar+i]=='\'')
+              contrindex=i;
+          printf("(%d||%d||%d||%s)", contrindex,startvar, endvar, raw_word);
 
-        free(word);
+
+          if(contrindex!=0&&raw_word[startvar+contrindex-1]=='n')
+          {
+            endvar=startvar+contrindex-2;
+            word = (char*)malloc((endvar-startvar+2)*sizeof(char));
+            for(int i = 0;i<=endvar;i++)
+                word[i]=tolower(raw_word[startvar+i]);
+            word[endvar-startvar+1]=0;
+            strcat(word," not");
+          }
+          else{
+          word = (char*)malloc((endvar-startvar+2)*sizeof(char));
+          for(int i = 0;i<=endvar;i++)
+              word[i]=tolower(raw_word[startvar+i]);
+          word[endvar-startvar+1]=0;
+          }
+
+            //porter_stemmer(word);
+            printf("||%s\n\n", word);
+
+          free(word);
+          hypcount--;
+        }
+
         free(raw_word);
       }
       rword = strtok(NULL, sep);

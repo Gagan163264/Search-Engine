@@ -151,7 +151,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       if(elementcounter%2 == 0)
       {
         element2counter=0;
-        substructctr++;
+          substructctr++;
       }
       else
         element2counter=1;

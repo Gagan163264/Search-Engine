@@ -57,6 +57,9 @@ int main(void)
   int endvar;
   int contrindex;
   int contadd;
+  int contflag;
+  int wordsize;
+  int pass;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -161,34 +164,121 @@ int main(void)
             endvar=endword;
           }
 
+          pass = 0;
+          contflag = 0;
           contadd = 0;
           contrindex = 0;
           for(int i = endvar;i>=0;i--)
-            if(raw_word[startvar+i]=='\'')
+            if(raw_word[startvar+i]=='\''&&strcmp(sep, "csv"))
               contrindex=i;
-          printf("(%d||%d||%d||%s)", contrindex,startvar, endvar, raw_word);
 
-
-          if(contrindex!=0&&raw_word[startvar+contrindex-1]=='n')
+          while(contrindex>=0)//seperate contractions into different words
           {
-            endvar=startvar+contrindex-2;
-            word = (char*)malloc((endvar-startvar+2)*sizeof(char));
-            for(int i = 0;i<=endvar;i++)
-                word[i]=tolower(raw_word[startvar+i]);
-            word[endvar-startvar+1]=0;
-            strcat(word," not");
-          }
-          else{
-          word = (char*)malloc((endvar-startvar+2)*sizeof(char));
-          for(int i = 0;i<=endvar;i++)
-              word[i]=tolower(raw_word[startvar+i]);
-          word[endvar-startvar+1]=0;
-          }
+            if(!contflag&&contrindex&&raw_word[startvar+contrindex-1]=='n'&&(endvar>=startvar+contrindex+1)&&raw_word[startvar+contrindex+1]=='t')//contraction 1
+            {
+              endvar=startvar+contrindex-2;
+              contflag=1;
+            }
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+2)&&raw_word[startvar+contrindex+1]=='v'&&raw_word[startvar+contrindex+2]=='e')//contraction 2
+              contflag=2;
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+1)&&raw_word[startvar+contrindex+1]=='s')//contraction 3
+              contflag=3;
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+2)&&raw_word[startvar+contrindex+1]=='r'&&raw_word[startvar+contrindex+2]=='e')//contraction 4
+              contflag=4;
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+1)&&raw_word[startvar+contrindex+1]=='d')//contraction 5
+              contflag=5;
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+2)&&raw_word[startvar+contrindex+1]=='l'&&raw_word[startvar+contrindex+2]=='l')//contraction 6
+              contflag=6;
+            else if(!contflag&&contrindex&&(endvar>=startvar+contrindex+1)&&raw_word[startvar+contrindex+1]=='m')//contraction 7
+              contflag=7;
+            else{}
 
-            //porter_stemmer(word);
-            printf("||%s\n\n", word);
+            if(contrindex)
+            {
+              if(contflag!=1)
+                endvar=startvar+contrindex-1;
+              contrindex=1;
+              if(contflag==5&&!(pass++))
+                contrindex=2;
+            }
+            if(!contrindex&&contflag==1)
+             {
+               wordsize=4;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"not");
+               word[wordsize-1]=0;
+             }
+             else if(!contrindex&&contflag==2)
+             {
+               wordsize=5;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"have");
+               word[wordsize-1]=0;
+             }
+             else if(!contrindex&&contflag==3)
+             {
+               wordsize=3;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"is");
+               word[wordsize-1]=0;
+             }
+             else if(!contrindex&&contflag==4)
+             {
+               wordsize=4;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"are");
+               word[wordsize-1]=0;
+             }
+             else if(contrindex!=2&&contflag==5)
+             {
+               if(!contrindex)
+               {
+               wordsize=6;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"would");
+               word[wordsize-1]=0;
+             }
+              if(contrindex==1)
+              {
+                wordsize=4;
+                word = (char*)malloc(wordsize*sizeof(char));
+                strcpy(word,"had");
+                word[wordsize-1]=0;
+              }
+             }
+             else if(!contrindex&&contflag==6)
+             {
+               wordsize=5;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"will");
+               word[wordsize-1]=0;
+             }
+             else if(!contrindex&&contflag==7)
+             {
+               wordsize=3;
+               word = (char*)malloc(wordsize*sizeof(char));
+               strcpy(word,"am");
+               word[wordsize-1]=0;
+             }
 
-          free(word);
+            else
+            {
+              word = (char*)malloc((endvar-startvar+2)*sizeof(char));
+              for(int i = 0;i<=endvar;i++)
+                  word[i]=tolower(raw_word[startvar+i]);
+              word[endvar-startvar+1]=0;
+            }
+            if(word[0])
+            {
+              if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
+              {
+                porter_stemmer(word);
+                printf("||%s\n\n", word);
+              }
+            }
+            free(word);
+            contrindex--;
+          }
           hypcount--;
         }
 

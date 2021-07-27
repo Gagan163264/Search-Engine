@@ -50,7 +50,7 @@ char** import_stopdb_tomem(long *database_size, char *databasedb)
     else
       letter_counter++;
   }
-  max_size++; //0 as termination character
+  max_size++; //to add 0 as termination character
   *database_size=line_count;
   char **stop_db_arr = (char **)malloc(line_count * sizeof(char *));
   for (int i=0; i<line_count; i++)
@@ -91,6 +91,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
   while((c=database[indexc++])!=0)
     if(c=='\n')
       elementcount++;
+  *database_size=elementcount;
   struct index_word* index = (struct index_word*)malloc((elementcount+1) * sizeof(struct index_word));
   index[elementcount].word=NULL;
   int indx = 0;
@@ -171,3 +172,63 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
   }
   return index;
 }
+
+int reversenum(int num)
+{
+  int rev_num = 0;
+  while (num > 0) {
+      rev_num = rev_num * 10 + num % 10;
+      num = num / 10;
+  }
+  return rev_num;
+}
+
+ int export_index(struct index_word* index, long index_size, char* databasedb)
+ {
+   char db_backup[]="SE-db/index-backup.txt";
+   FILE *dbfile = fopen(databasedb, "r");
+   FILE *dbbfile = fopen(db_backup, "w");
+   if(dbfile==NULL||dbbfile==NULL)
+    return 1;
+   char c;
+   while ((c = fgetc(dbfile))!= EOF)
+     fputc(c, dbbfile);
+  fclose(dbfile);
+  fclose(dbbfile);
+  dbfile = fopen(databasedb, "w");
+  fseek(dbfile, 0, SEEK_SET);
+
+  int datai = 0;
+  int ind = 0;
+  int num = 0;
+  while(index[ind].word!=NULL)
+  {
+    fputs(index[ind].word, dbfile);
+    fputc('|',dbfile);
+    num = reversenum(index[ind].freq_across_docs);
+    while(num>0)
+    {
+      fputc((num%10)+'0',dbfile);
+      num = num/10;
+    }
+    fputc('|',dbfile);
+    datai = 0;
+    while(index[ind].doc_data[datai].docname!=NULL)
+    {
+      fputs(index[ind].doc_data[datai].docname, dbfile);
+      fputc('|',dbfile);
+      num = reversenum(index[ind].doc_data[datai].freq);
+      while(num>0)
+      {
+        fputc((num%10)+'0',dbfile);
+        num = num/10;
+      }
+      fputc('|',dbfile);
+      datai++;
+    }
+    fputc('\n',dbfile);
+    ind++;
+  }
+  fclose(dbfile);
+  return 0;
+ }

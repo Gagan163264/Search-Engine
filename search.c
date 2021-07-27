@@ -46,6 +46,32 @@ int bin_search(long size, char** db_arr, char cmp_str[], int(*cmp_fn)(int, char*
   return mp;
 }
 
+int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, int sel) //binary search in a array in struxt
+{
+  long mp;
+  int left = 0;
+  int right = size-1;
+  if(right<0)
+    right = 0;
+  int cmp;
+  int count = 0;
+  while(left<=right)
+  {
+    count++;
+    mp = (left+right)/2;
+    cmp = (sel<0)?strcmp(index_arr[mp].word, cmp_str):strcmp(index_arr[sel].doc_data[mp].docname, cmp_str);
+    if(sel>=0)
+      printf("\ninarr(%s||%s||%d||%d||%ld)\n", cmp_str,index_arr[sel].doc_data[mp].docname,cmp,sel,mp);
+    if(cmp == 0)
+      return mp;
+    if(cmp>0)
+      right = mp-1;
+    else
+      left = mp+1;
+  }
+  return -mp-1;
+}
+
 char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[])
 {
   int wcount = 0;
@@ -97,6 +123,7 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   return uin_wtable;
 }
 
+//-----------------------------------------porter stemmer-----------------------------------------------------------------------------------------
 int is_vowel(char* word, int index)
 {
   if(!isalpha(word[index]))
@@ -112,62 +139,21 @@ int is_vowel(char* word, int index)
   return 0;
 }
 
-int starc(char ch, char* word)
+int getm(char* word, int end)
 {
-  int index = 0;
-  while(word[index])
-    index++;
-  if(word[index-1]==ch)
-    return index;
-  return 0;
-}
-
-int starv(char* word)
-{
-  int index=0;
-  while(word[index])
-  {
-    if(index!=0&&word[index+1]!=0&&is_vowel(word,index)==1)
-      return 1;
-    index++;
-  }
-  return 0;
-}
-
-int stard(char* word)
-{
-  int index = 0;
-  while(word[index])
-    index++;
-  if(index<2)
-    return 0;
-  if(!is_vowel(word, index-1)&&!is_vowel(word,index-2))
-    return 1;
-  return 0;
-}
-
-int staro(char* word)
-{
-  int index = 0;
-  while(word[index])
-    index++;
-  if(!is_vowel(word,index-1)&&word[index-1]!='w'&&word[index-1]!='x'&&word[index-1]!='y')
-    if(is_vowel(word, index-2)==1)
-      if(!is_vowel(word,index-3))
-        return 1;
-  return 0;
-}
-
-char* porter_stemmer(char* word)
-{
-  int index =0;
   int m = 0;
   int vflag = 0;
   int cflag = 0;
-  while(word[index])
+  int indx =0;
+  while(word[indx])
+    indx++;
+  if((indx-end)<=0)
+    return 0;
+  int index = 0;
+  while(index<(indx-end))
   {
     if(is_vowel(word,index)==-1)
-      return word;
+      return -1;
     if(is_vowel(word,index)==1)
       vflag=1;
     if(vflag==1&&!is_vowel(word,index))
@@ -180,7 +166,87 @@ char* porter_stemmer(char* word)
     }
     index++;
   }
-  printf("%s\n", word);
+  if((index+end)!=indx)
+    return 0;
+  return m;
+}
+
+int starc(char ch, char* word,int end)
+{
+  int indx = 0;
+  while(word[indx])
+    indx++;
+  if((indx-end)<=0)
+    return 0;
+  int index = 0;
+  while(word[index]&&index<(indx-end))
+    index++;
+  if(word[index-1]==ch)
+    return index;
+  if((index+end)!=indx)
+    return 0;
+  return 0;
+}
+
+int starv(char* word,int end)
+{
+  int indx = 0;
+  while(word[indx])
+    indx++;
+  if((indx-end)<=0)
+    return 0;
+  int index = 0;
+  while(word[index]&&index<(indx-end))
+  {
+    if(index!=0&&word[index+1]!=0&&is_vowel(word,index)==1)
+      return 1;
+    index++;
+  }
+  return 0;
+}
+
+int stard(char* word, int end)
+{
+  int indx = 0;
+  while(word[indx])
+    indx++;
+  if((indx-end)<=0)
+    return 0;
+  int index = 0;
+  while(word[index]&&index<(indx-end))
+    index++;
+  if(index<2)
+    return 0;
+  if(!is_vowel(word, index-1)&&!is_vowel(word,index-2))
+    return 1;
+  return 0;
+}
+
+int staro(char* word, int end)
+{
+  int indx = 0;
+  while(word[indx])
+    indx++;
+  if((indx-end)<=0)
+    return 0;
+  int index = 0;
+  while(word[index]&&index<(indx-end))
+    index++;
+  if(!is_vowel(word,index-1)&&word[index-1]!='w'&&word[index-1]!='x'&&word[index-1]!='y')
+    if(is_vowel(word, index-2)==1)
+      if(!is_vowel(word,index-3))
+        return 1;
+  return 0;
+}
+
+char* porter_stemmer(char* word)
+{
+  if(getm(word, 0)<0)
+    return word;
+  int index = 0;
+  while(word[index])
+    index++;
+  //printf("%s", word);
   if(index<=3)
     return word;
 
@@ -192,18 +258,17 @@ char* porter_stemmer(char* word)
   }
   else if(word[index-1]=='s'&&word[index-2]!='s')
     word[--index]=0;
-  puts(word);
 
   int patch = 0;
-  if(m>0&&word[index-1]=='d'&&word[index-2]=='e'&&word[index-3]=='e')//step 1-b
+  if(getm(word,3)>0&&word[index-1]=='d'&&word[index-2]=='e'&&word[index-3]=='e')//step 1-b
     word[--index]=0;
-  else if(starv(word)&&word[index-1]=='d'&&word[index-2]=='e')
+  else if(starv(word,2)&&word[index-1]=='d'&&word[index-2]=='e')
   {
     patch = 1;
     for(int i = 1;i<=2;i++)
       word[--index]=0;
   }
-  else if(starv(word)&&word[index-1]=='g'&&word[index-2]=='n'&&word[index-3]=='i')
+  else if(starv(word,3)&&word[index-1]=='g'&&word[index-2]=='n'&&word[index-3]=='i')
   {
     patch = 1;
     for(int i = 1;i<=3;i++)
@@ -211,21 +276,163 @@ char* porter_stemmer(char* word)
   }
   else if(word[index-1]=='s'&&word[index-2]!='s')
     word[--index]=0;
-  puts(word);
   if(patch)
   {
     if((word[index-1]=='t'&&word[index-2]=='a')||(word[index-1]=='l'&&word[index-2]=='b')||(word[index-1]=='z'&&word[index-2]=='i'))
       word[index]='e';
-    else if(stard(word)&&!(starc('l',word)||starc('s',word)||starc('z',word)))
+    else if(stard(word,0)&&!(starc('l',word,0)||starc('s',word,0)||starc('z',word,0)))
       word[--index]=0;
     else if(word[index-1]=='s'&&word[index-2]!='s')
       word[--index]=0;
-    else if(m==1&&staro(word))
+    else if(getm(word,0)==1&&staro(word,0))
       word[index]='e';
-    puts(word);
   }
 
-  if(starv(word)&&word[index-1]=='y')//step 1-c
+  if(starv(word,1)&&word[index-1]=='y')//step 1-c
     word[index-1]='i';
 
+
+  if(getm(word,7)&&word[index-1]=='l'&&word[index-2]=='a'&&word[index-3]=='n'&&word[index-4]=='o'&&word[index-5]=='i'&&word[index-6]=='t'&&word[index-7]=='a')//step 2
+  {
+    for(int i = 1;i<=5;i++)
+      word[--index]=0;
+    word[index]='e';
+  }
+  else if(getm(word,6)&&word[index-1]=='l'&&word[index-2]=='a'&&word[index-3]=='n'&&word[index-4]=='o'&&word[index-5]=='i'&&word[index-6]=='t')
+    for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,4)&&word[index-1]=='i'&&word[index-2]=='c'&&word[index-3]=='n'&&(word[index-4]=='a'||word[index-4]=='e'))
+    word[index-1]='e';
+  else if(getm(word,4)&&word[index-1]=='r'&&word[index-2]=='e'&&word[index-3]=='z'&&word[index-4]=='i')
+      word[--index]=0;
+  else if(getm(word,4)&&word[index-1]=='i'&&word[index-2]=='l'&&word[index-3]=='b'&&word[index-4]=='a')
+      word[--index]='e';
+  else if(getm(word,4)&&word[index-1]=='i'&&word[index-2]=='l'&&word[index-3]=='l'&&word[index-4]=='a')
+   for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='i'&&word[index-2]=='l'&&word[index-3]=='t'&&word[index-4]=='n'&&word[index-5]=='e')
+   for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,3)&&word[index-1]=='i'&&word[index-2]=='l'&&word[index-3]=='e')
+   for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='i'&&word[index-2]=='l'&&word[index-3]=='s'&&word[index-4]=='u'&&word[index-5]=='o')
+   for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,7)&&word[index-1]=='n'&&word[index-2]=='o'&&word[index-3]=='i'&&word[index-4]=='t'&&word[index-5]=='a'&&word[index-6]=='z'&&word[index-7]=='i')
+    {
+      for(int i = 1;i<=5;i++)
+        word[--index]=0;
+      word[index]='e';
+    }
+  else if(getm(word,5)&&word[index-1]=='n'&&word[index-2]=='o'&&word[index-3]=='i'&&word[index-4]=='t'&&word[index-5]=='a')
+    {
+      for(int i = 1;i<=3;i++)
+        word[--index]=0;
+      word[index]='e';
+    }
+  else if(getm(word,4)&&word[index-1]=='r'&&word[index-2]=='o'&&word[index-3]=='t'&&word[index-4]=='a')
+    {
+      for(int i = 1;i<=2;i++)
+        word[--index]=0;
+      word[index]='e';
+    }
+  else if(getm(word,5)&&word[index-1]=='m'&&word[index-2]=='s'&&word[index-3]=='i'&&word[index-4]=='l'&&word[index-5]=='a')
+      for(int i = 1;i<=3;i++)
+        word[--index]=0;
+  else if(getm(word,7)&&word[index-1]=='s'&&word[index-2]=='s'&&word[index-3]=='e'&&word[index-4]=='n'&&((word[index-5]=='e'&&word[index-6]=='v'&&word[index-7]=='i')||(word[index-5]=='l'&&word[index-6]=='u'&&word[index-7]=='f')||(word[index-5]=='s'&&word[index-6]=='u'&&word[index-7]=='o')))
+      for(int i = 1;i<=4;i++)
+        word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='i'&&word[index-2]=='t'&&word[index-3]=='i'&&word[index-4]=='l'&&word[index-5]=='a')
+   for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='i'&&word[index-2]=='t'&&word[index-3]=='i'&&word[index-4]=='v'&&word[index-5]=='i')
+  {
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+    word[index]='e';
+  }
+  else if(getm(word,6)&&word[index-1]=='i'&&word[index-2]=='t'&&word[index-3]=='i'&&word[index-4]=='l'&&word[index-5]=='i'&&word[index-6]=='b')
+  {
+    for(int i = 1;i<=5;i++)
+      word[--index]=0;
+    word[index]='l';
+    word[index+1]='e';
+  }
+
+  if(getm(word,5)&&word[index-1]=='e'&&word[index-2]=='t'&&word[index-3]=='a'&&word[index-4]=='c'&&word[index-5]=='i')//step 3
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='e'&&word[index-2]=='v'&&word[index-3]=='i'&&word[index-4]=='t'&&word[index-5]=='a')
+    for(int i = 1;i<=5;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='e'&&word[index-2]=='z'&&word[index-3]=='i'&&word[index-4]=='l'&&word[index-5]=='a')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,5)&&word[index-1]=='i'&&word[index-2]=='t'&&word[index-3]=='i'&&word[index-4]=='c'&&word[index-5]=='i')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,4)&&word[index-1]=='l'&&word[index-2]=='a'&&word[index-3]=='c'&&word[index-4]=='i')
+    for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,3)&&word[index-1]=='l'&&word[index-2]=='u'&&word[index-3]=='f')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,4)&&word[index-1]=='s'&&word[index-2]=='s'&&word[index-3]=='e'&&word[index-4]=='n')
+    for(int i = 1;i<=4;i++)
+      word[--index]=0;
+
+  if(getm(word,2)>1&&((word[index-1]=='l'&&word[index-2]=='a')||(word[index-1]=='r'&&word[index-2]=='e')||(word[index-1]=='c'&&word[index-2]=='i')))//step 4
+    for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,4)>1&&word[index-1]=='e'&&word[index-2]=='c'&&word[index-3]=='n'&&(word[index-4]=='a'||word[index-4]=='e'))
+    for(int i = 1;i<=4;i++)
+      word[--index]=0;
+  else if(getm(word,4)>1&&word[index-1]=='e'&&word[index-2]=='l'&&word[index-3]=='b'&&(word[index-4]=='a'||word[index-4]=='i'))
+    for(int i = 1;i<=4;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='t'&&word[index-2]=='n'&&word[index-3]=='s')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,5)>1&&word[index-1]=='t'&&word[index-2]=='n'&&word[index-3]=='e'&&word[index-4]=='m'&&word[index-5]=='e')
+    for(int i = 1;i<=5;i++)
+      word[--index]=0;
+  else if(getm(word,4)>1&&word[index-1]=='t'&&word[index-2]=='n'&&word[index-3]=='e'&&word[index-4]=='m')
+    for(int i = 1;i<=4;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='t'&&word[index-2]=='n'&&word[index-3]=='e')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&(starc('s',word,3)||starc('t',word,3))&&word[index-1]=='n'&&word[index-2]=='o'&&word[index-3]=='i')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='s'&&word[index-2]=='u'&&word[index-3]=='o')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,2)>1&&word[index-1]=='u'&&word[index-2]=='o')
+    for(int i = 1;i<=2;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='m'&&word[index-2]=='s'&&word[index-3]=='i')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='e'&&word[index-2]=='t'&&word[index-3]=='a')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='i'&&word[index-2]=='t'&&word[index-3]=='i')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+  else if(getm(word,3)>1&&word[index-1]=='e'&&(word[index-2]=='v'||word[index-2]=='z')&&word[index-3]=='i')
+    for(int i = 1;i<=3;i++)
+      word[--index]=0;
+
+
+  if(getm(word,1)>1&&word[index-1]=='e')//step 5-a
+      word[--index]=0;
+  else if(getm(word,1)==1&&!staro(word, 1)&&word[index-1]=='e')
+      word[--index]=0;
+
+  if(getm(word,0)>1&&starc('d',word,0)&&starc('l',word,0))//step 5-B
+      word[--index]=0;
+
+  return word;
 }

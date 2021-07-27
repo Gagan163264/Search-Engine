@@ -24,3 +24,4 @@ clean:
 		@rm -f search.o
 		@rm -f a.out
 		@rm -f databasehandling.o
+		@rm -f core

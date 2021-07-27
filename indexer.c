@@ -32,8 +32,7 @@ int main(void)
 
   long size_index;             //import index structure
   struct index_word* index = import_index_tomem(&size_index, index_path);
-  printf("%s||%d||(%s||%d)\n", index[1].word, index[1].freq_across_docs, index[1].doc_data[1].docname, index[1].doc_data[1].freq);
-  printf("\n\n");
+  printf("test-%s",index[3].doc_data[0].docname);
 
 
   //vars used inside while
@@ -60,6 +59,10 @@ int main(void)
   int contflag;
   int wordsize;
   int pass;
+  int index_pos;
+  int substructindex;
+  int sub_index_pos;
+  int idx_size;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -80,7 +83,6 @@ int main(void)
     while(de->d_name[check_txt] != 0)
         fpath[path_append++]=de->d_name[check_txt++];
     fpath[path_append]=0;
-
     char* fle = importdb_tomem(&size_d, fpath);
     rword = strtok(fle, sep);
 
@@ -268,27 +270,71 @@ int main(void)
                   word[i]=tolower(raw_word[startvar+i]);
               word[endvar-startvar+1]=0;
             }
-            if(word[0])
+            if(word[0])//final word
             {
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
-              {
                 porter_stemmer(word);
-                printf("||%s\n\n", word);
+              index_pos=bin_search_struct(size_index,index, word,-1);
+              printf("%d||", index_pos);
+              if(index_pos>=0)
+              {
+                //something with freq_across_docs(hash keys if time)
+                substructindex=0;
+                while(index[index_pos].doc_data[substructindex].docname!=NULL)
+                  substructindex++;
+                sub_index_pos=bin_search_struct(substructindex-1,index,de->d_name,index_pos);
+                if(sub_index_pos>=0)
+                  index[index_pos].doc_data[sub_index_pos].freq++;
+                else
+                {
+                  index[index_pos].doc_data=realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
+                  while(substructindex>=((-sub_index_pos)-1))
+                  {
+                    index[index_pos].doc_data[substructindex+1]=index[index_pos].doc_data[substructindex];
+                    substructindex--;
+                  }
+                  substructindex++;
+                  free(index[index_pos].doc_data[substructindex].docname);
+                  index[index_pos].doc_data[substructindex].docname=(char*)malloc(check_txt*sizeof(char));
+                  strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
+                  index[index_pos].doc_data[substructindex].freq=1;
+                }
               }
+              else
+              {
+                  idx_size=size_index++; //not working, fix
+                  index=realloc(index,size_index*sizeof(struct index_word));
+                  while((idx_size-1)>=((-index_pos)-1))
+                  {
+                    index[idx_size]=index[idx_size-1];
+                    idx_size--;
+                  }
+                  idx_size++;
+                  free(index[idx_size-1].word);
+                  index[idx_size-1].word=(char*)malloc((endvar-startvar+2)*sizeof(char));
+                  strcpy(index[idx_size-1].word, word);
+                  index[idx_size-1].freq_across_docs=1;
+                  index[idx_size-1].doc_data=(struct freq_per_doc*)calloc(2,sizeof(struct freq_per_doc));
+                  index[idx_size-1].doc_data[0].docname=(char*)malloc(check_txt*sizeof(char));
+                  strcpy(index[idx_size-1].doc_data[0].docname, de->d_name);
+                  index[idx_size-1].doc_data[1].docname=NULL;
+                  index[idx_size-1].doc_data[0].freq=1;
+              }
+              printf("||%s\n\n", word);
             }
             free(word);
             contrindex--;
           }
           hypcount--;
         }
-
         free(raw_word);
       }
       rword = strtok(NULL, sep);
     }
     free(fle);
   }
-
+  char testpath[]="SE-db/testindex.txt";
+  export_index(index, size_index, testpath);
   closedir(dr);
   return 0;
 }

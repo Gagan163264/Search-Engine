@@ -3,7 +3,6 @@
 #include<string.h>
 #include<stdlib.h>
 #include<ctype.h>
-
 #include"databasehandling.h"
 #include"search.h"
 
@@ -16,25 +15,22 @@ int main(void)
   char* dot;
   struct dirent *de;
   char fpath[100]="source/";
+  char index_template_path[] = "SE-db/index_template.txt";
   char index_path[]="SE-db/index.txt";
   char stop_db_path[]="SE-db/stop-words.txt";
 
   long stop_size;
   char** stop_db_arr = import_stopdb_tomem(&stop_size, stop_db_path);
-
   DIR *dr = opendir("source");
   if (dr == NULL)  // opendir returns NULL if couldn't open directory
   {
-      printf("Could not open current directory" );
+      printf("Could not open current directory\n" );
       return 0;
   }
 
 
   long size_index;             //import index structure
-  struct index_word* index = import_index_tomem(&size_index, index_path);
-  printf("test-%s",index[3].doc_data[0].docname);
-
-
+  struct index_word* index = import_index_tomem(&size_index, index_template_path);
   //vars used inside while
   long size_d;
   int findex = 0;
@@ -279,11 +275,10 @@ int main(void)
             {
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
                 porter_stemmer(word);
-                printf("%s",word);
               index_pos=bin_search_struct(size_index,index, word,-1);
-              printf("%d||", index_pos);
               if(index_pos>=0)
               {
+                printf("Found word '%s' in document '%s' at %dth position in index\n\n", word, de->d_name, index_pos);
                 //something with freq_across_docs(hash keys if time)
                 substructindex=0;
                 while(index[index_pos].doc_data[substructindex].docname!=NULL)
@@ -293,6 +288,7 @@ int main(void)
                   index[index_pos].doc_data[sub_index_pos].freq++;
                 else
                 {
+                  printf("Updating document list to add '%s' for word '%s'\n\n", de->d_name, word);
                   index[index_pos].doc_data=(struct freq_per_doc*)realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
                   while(substructindex>=((-sub_index_pos)-1))
                   {
@@ -307,7 +303,7 @@ int main(void)
               }
               else
               {
-                 printf("\n(%ld||%d)",size_index,-index_pos-1);
+                 printf("Updating index, adding '%s' in document '%s' at position %d\n\n",word, de->d_name, -index_pos-1);
                   idx_size=size_index;
                   index=(struct index_word*)realloc(index,(size_index+2)*sizeof(struct index_word));
                   size_index++;
@@ -322,12 +318,10 @@ int main(void)
                   index[idx_size].freq_across_docs=1;
                   index[idx_size].doc_data=(struct freq_per_doc*)calloc(2,sizeof(struct freq_per_doc));
                   index[idx_size].doc_data[0].docname=(char*)malloc(check_txt*sizeof(char));
-                  printf("idx_size-%d\n", idx_size);
                   strcpy(index[idx_size].doc_data[0].docname, de->d_name);
                   index[idx_size].doc_data[1].docname=NULL;
                   index[idx_size].doc_data[0].freq=1;
               }
-              printf("||%s\n\n", word);
             }
             free(word);
             contrindex--;
@@ -341,6 +335,8 @@ int main(void)
     free(fle);
   }
   export_index(index, size_index, index_path);
+  free(index);
   closedir(dr);
+  printf("Search completed, index of %ld words created\n", size_index);
   return 0;
 }

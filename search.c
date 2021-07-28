@@ -60,8 +60,8 @@ int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, in
     count++;
     mp = (left+right)/2;
     cmp = (sel<0)?strcmp(index_arr[mp].word, cmp_str):strcmp(index_arr[sel].doc_data[mp].docname, cmp_str);
-    if(sel>=0)
-      printf("\ninarr(%s||%s||%d||%d||%ld)\n", cmp_str,index_arr[sel].doc_data[mp].docname,cmp,sel,mp);
+    //if(sel>=0)
+      //printf("\ninarr(%s||%s||%d||%d||%ld)\n", cmp_str,index_arr[sel].doc_data[mp].docname,cmp,sel,mp);
     if(cmp == 0)
       return mp;
     if(cmp>0)

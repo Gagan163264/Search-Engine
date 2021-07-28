@@ -115,13 +115,13 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       elementcounter = 0;
       element2counter = 0;
       sepcount = 0;
-      for(int i = indx+1;(database[i]!='\n' && database[i]!= 0);i++)//declare structure
+      for(int i = indx;(database[i]!='\n' && database[i]!= 0);i++)//declare structure
         if(database[i]=='|')
           sepcount++;
-      index[indexc].doc_data = (struct freq_per_doc*)calloc((sepcount-1),sizeof(struct freq_per_doc));
-      index[indexc].doc_data[sepcount-1].docname=NULL;
+      index[indexc].doc_data = (struct freq_per_doc*)calloc((sepcount-1)/2,sizeof(struct freq_per_doc));
+      index[indexc].doc_data[(sepcount-1)/2-1].docname=NULL;
       sepcount = 0;
-      for(int i = indx+1;(database[i]!='\n' && database[i]!= 0);i++)//initialize structure
+      for(int i = indx;(database[i]!='\n' && database[i]!= 0);i++)//initialize structure
         if(database[i]=='|')
         {
           sepcount++;
@@ -223,7 +223,8 @@ int reversenum(int num)
         fputc((num%10)+'0',dbfile);
         num = num/10;
       }
-      fputc('|',dbfile);
+      if(index[ind].doc_data[datai+1].docname!=NULL)
+        fputc('|',dbfile);
       datai++;
     }
     fputc('\n',dbfile);

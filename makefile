@@ -9,12 +9,14 @@ run: main.o
 compile: main.o
 
 indexer.o:indexer.c databasehandling.c search.c
-	@gcc -c indexer.c databasehandling.c search.c
+	@gcc -g -c indexer.c databasehandling.c search.c
 
 crawl:indexer.o
 	@gcc indexer.o databasehandling.o search.o -o crawl.out
 	@chmod 755 crawl.out
 	@./crawl.out
+
+ccompile: indexer.o
 
 clean:
 		@rm -f main.o

@@ -63,6 +63,7 @@ int main(void)
   int substructindex;
   int sub_index_pos;
   int idx_size;
+  int numpr;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -262,18 +263,23 @@ int main(void)
                strcpy(word,"am");
                word[wordsize-1]=0;
              }
-
             else
             {
               word = (char*)malloc((endvar-startvar+2)*sizeof(char));
+              numpr=0;
               for(int i = 0;i<=endvar;i++)
-                  word[i]=tolower(raw_word[startvar+i]);
+              {
+                word[i]=tolower(raw_word[startvar+i]);
+                numpr = numpr+isalpha(word[i]);
+              }
               word[endvar-startvar+1]=0;
             }
-            if(word[0])//final word
+
+            if(word[0]&&numpr)//final word
             {
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
                 porter_stemmer(word);
+                printf("%s",word);
               index_pos=bin_search_struct(size_index,index, word,-1);
               printf("%d||", index_pos);
               if(index_pos>=0)
@@ -282,19 +288,18 @@ int main(void)
                 substructindex=0;
                 while(index[index_pos].doc_data[substructindex].docname!=NULL)
                   substructindex++;
-                sub_index_pos=bin_search_struct(substructindex-1,index,de->d_name,index_pos);
+                sub_index_pos=bin_search_struct(substructindex,index,de->d_name,index_pos);
                 if(sub_index_pos>=0)
                   index[index_pos].doc_data[sub_index_pos].freq++;
                 else
                 {
-                  index[index_pos].doc_data=realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
+                  index[index_pos].doc_data=(struct freq_per_doc*)realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
                   while(substructindex>=((-sub_index_pos)-1))
                   {
                     index[index_pos].doc_data[substructindex+1]=index[index_pos].doc_data[substructindex];
                     substructindex--;
                   }
                   substructindex++;
-                  free(index[index_pos].doc_data[substructindex].docname);
                   index[index_pos].doc_data[substructindex].docname=(char*)malloc(check_txt*sizeof(char));
                   strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
                   index[index_pos].doc_data[substructindex].freq=1;
@@ -302,23 +307,25 @@ int main(void)
               }
               else
               {
-                  idx_size=size_index++; //not working, fix
-                  index=realloc(index,size_index*sizeof(struct index_word));
-                  while((idx_size-1)>=((-index_pos)-1))
+                 printf("\n(%ld||%d)",size_index,-index_pos-1);
+                  idx_size=size_index;
+                  index=(struct index_word*)realloc(index,(size_index+2)*sizeof(struct index_word));
+                  size_index++;
+                  while((idx_size)>=((-index_pos)-1))
                   {
-                    index[idx_size]=index[idx_size-1];
+                    index[idx_size+1]=index[idx_size];
                     idx_size--;
                   }
                   idx_size++;
-                  free(index[idx_size-1].word);
-                  index[idx_size-1].word=(char*)malloc((endvar-startvar+2)*sizeof(char));
-                  strcpy(index[idx_size-1].word, word);
-                  index[idx_size-1].freq_across_docs=1;
-                  index[idx_size-1].doc_data=(struct freq_per_doc*)calloc(2,sizeof(struct freq_per_doc));
-                  index[idx_size-1].doc_data[0].docname=(char*)malloc(check_txt*sizeof(char));
-                  strcpy(index[idx_size-1].doc_data[0].docname, de->d_name);
-                  index[idx_size-1].doc_data[1].docname=NULL;
-                  index[idx_size-1].doc_data[0].freq=1;
+                  index[idx_size].word=(char*)malloc((endvar-startvar+2)*sizeof(char));
+                  strcpy(index[idx_size].word, word);
+                  index[idx_size].freq_across_docs=1;
+                  index[idx_size].doc_data=(struct freq_per_doc*)calloc(2,sizeof(struct freq_per_doc));
+                  index[idx_size].doc_data[0].docname=(char*)malloc(check_txt*sizeof(char));
+                  printf("idx_size-%d\n", idx_size);
+                  strcpy(index[idx_size].doc_data[0].docname, de->d_name);
+                  index[idx_size].doc_data[1].docname=NULL;
+                  index[idx_size].doc_data[0].freq=1;
               }
               printf("||%s\n\n", word);
             }
@@ -333,8 +340,7 @@ int main(void)
     }
     free(fle);
   }
-  char testpath[]="SE-db/testindex.txt";
-  export_index(index, size_index, testpath);
+  export_index(index, size_index, index_path);
   closedir(dr);
   return 0;
 }

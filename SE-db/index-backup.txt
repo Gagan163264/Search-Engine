@@ -1,4 +1,5 @@
-cheems|45|grf.exr|56|
-ocean|45|db.txt|1|db.txt|53|
-space|36|db.txt|1|db.txt|4|docrt3.txt|65|
-time|345|db.txt|3|db.txt|54|
+cheem|45|grf.exr|56
+ocean|45|doc3.txt|53
+space|36|dac2.txt|4|docrt3.txt|65
+start|34|db.txt|2
+time|345|doce1.txt|54

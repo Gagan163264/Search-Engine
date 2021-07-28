@@ -69,6 +69,8 @@ int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, in
     else
       left = mp+1;
   }
+  if(cmp<0)
+    return -mp-2;
   return -mp-1;
 }
 
@@ -217,25 +219,33 @@ int stard(char* word, int end)
     index++;
   if(index<2)
     return 0;
-  if(!is_vowel(word, index-1)&&!is_vowel(word,index-2))
+  if(!is_vowel(word, index-1)&&!is_vowel(word,index-2)&&word[index-1]==word[index-2])
     return 1;
   return 0;
 }
 
 int staro(char* word, int end)
 {
+  int vflag = 0;
   int indx = 0;
   while(word[indx])
     indx++;
   if((indx-end)<=0)
     return 0;
-  int index = 0;
-  while(word[index]&&index<(indx-end))
-    index++;
-  if(!is_vowel(word,index-1)&&word[index-1]!='w'&&word[index-1]!='x'&&word[index-1]!='y')
-    if(is_vowel(word, index-2)==1)
-      if(!is_vowel(word,index-3))
+  int index = indx-end-1;
+  /*if(!is_vowel(word,index)&&word[index]!='w'&&word[index]!='x'&&word[index]!='y')
+  {
+    while(index>=0)
+    {
+      if(is_vowel(word, index)==1)
+        vflag = 1;
+      if(vflag&&!is_vowel(word,index))
         return 1;
+      index--;
+    }
+  }*/
+  if(!is_vowel(word,index)&&word[index]!='w'&&word[index]!='x'&&word[index]!='y'&&is_vowel(word,index-1)&&!is_vowel(word,index-2))
+    return 1;
   return 0;
 }
 
@@ -246,7 +256,6 @@ char* porter_stemmer(char* word)
   int index = 0;
   while(word[index])
     index++;
-  //printf("%s", word);
   if(index<=3)
     return word;
 
@@ -266,7 +275,7 @@ char* porter_stemmer(char* word)
   {
     patch = 1;
     for(int i = 1;i<=2;i++)
-      word[--index]=0;
+        word[--index]=0;
   }
   else if(starv(word,3)&&word[index-1]=='g'&&word[index-2]=='n'&&word[index-3]=='i')
   {

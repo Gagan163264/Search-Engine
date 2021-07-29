@@ -9,6 +9,31 @@
 #define SENTENCE_SEPERATOR ';'
 #define INPT_SEPERATOR " "
 
+
+long long get_hash_key(char* word)
+{
+  int p = 31;
+  long m = 1000000009;
+  long long key = 0;
+  long long mult =1;
+  int index=0;
+  char ch;
+  int chr;
+  while((ch=word[index])!=0)
+  {
+    if(!isalnum(ch))
+    {
+      index++;
+      continue;
+    }
+    chr = (isdigit(ch))?'0':'a';
+    key = (key+(ch-chr+1)*mult)%m;
+    mult = (mult*p)%m;
+    index++;
+  }
+  return key;
+}
+
 void tolowerstr(char arr[]) //convert array to lowercase
 {
   int i = 0;
@@ -49,17 +74,66 @@ int bin_search(long size, char** db_arr, char cmp_str[], int(*cmp_fn)(int, char*
 int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, int sel) //binary search in a array in struxt
 {
   long mp;
+  long long hkey;
   int left = 0;
   int right = size-1;
+  if(sel<0)
+    hkey = get_hash_key(cmp_str);
   if(right<0)
     right = 0;
   int cmp;
   int count = 0;
+  int collisionstart;
+  int collisionend;
+  int cmpres;
+  int cmpr;
   while(left<=right)
   {
     count++;
     mp = (left+right)/2;
-    cmp = (sel<0)?strcmp(index_arr[mp].word, cmp_str):strcmp(index_arr[sel].doc_data[mp].docname, cmp_str);
+    if(sel<0)
+    {
+      cmp = index_arr[mp].hash_key-hkey;
+      cmpres = strcmp(index_arr[mp].word, cmp_str);
+      if(cmp==0&&cmpres)
+      {
+        printf("\n\nCollision between %s and %s\n\n", index_arr[mp].word,cmp_str);
+        if(cmpres>0)
+        {
+          collisionstart=mp-1;
+          while(index_arr[collisionstart].hash_key==hkey)
+          {
+            cmpr = strcmp(index_arr[collisionstart].word,cmp_str);
+            if(!cmpr)
+                mp=collisionstart;
+            if(cmpr<0)
+            {
+              mp=-(collisionstart+2);
+              break;
+            }
+            collisionstart--;
+            }
+          }
+        else
+        {
+          collisionend=mp+1;
+          while(index_arr[collisionend].hash_key==hkey)
+          {
+            cmpr = strcmp(index_arr[collisionend].word,cmp_str);
+            if(!cmpr)
+                mp=collisionstart;
+            if(cmpr>0)
+            {
+              mp=-(collisionstart);
+              break;
+            }
+            collisionstart--;
+          }
+        }
+      }
+    }
+    else
+      cmp = strcmp(index_arr[sel].doc_data[mp].docname, cmp_str);
     //if(sel>=0)
       //printf("\ninarr(%s||%s||%d||%d||%ld)\n", cmp_str,index_arr[sel].doc_data[mp].docname,cmp,sel,mp);
     if(cmp == 0)
@@ -124,6 +198,7 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   uin_wtable[wcount]=NULL;
   return uin_wtable;
 }
+
 
 //-----------------------------------------porter stemmer-----------------------------------------------------------------------------------------
 int is_vowel(char* word, int index)

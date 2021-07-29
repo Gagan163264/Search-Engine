@@ -7,7 +7,7 @@ struct freq_per_doc
 struct index_word
 {
   char* word;
-  int freq_across_docs;
+  long long hash_key;
   struct freq_per_doc* doc_data;
 };
 

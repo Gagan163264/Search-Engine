@@ -127,7 +127,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
           sepcount++;
           if(sepcount == 1)
           {
-            index[indexc].freq_across_docs = 0;
+            index[indexc].hash_key = 0;
             index[indexc].word = (char*)calloc(i-indx+1, sizeof(char));
           }
           if(sepcount>2&&(sepcount%2)!= 0)
@@ -161,7 +161,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
     if(elementcounter == 0)
       index[indexc].word[indexarr++]=c;
     if(elementcounter == 1)
-      index[indexc].freq_across_docs=10*index[indexc].freq_across_docs+c-'0';
+      index[indexc].hash_key=10*index[indexc].hash_key+c-'0';
     if(elementcounter >= 2)
     {
       if(element2counter == 0)
@@ -201,15 +201,22 @@ int reversenum(int num)
   int datai = 0;
   int ind = 0;
   int num = 0;
+  int tmpn = 0;
   while(index[ind].word!=NULL)
   {
     fputs(index[ind].word, dbfile);
     fputc('|',dbfile);
-    num = reversenum(index[ind].freq_across_docs);
+    tmpn = index[ind].hash_key;
+    num = reversenum(index[ind].hash_key);
     while(num>0)
     {
       fputc((num%10)+'0',dbfile);
       num = num/10;
+    }
+    while(tmpn%10==0)
+    {
+      fputc('0',dbfile);
+      tmpn = tmpn/10;
     }
     fputc('|',dbfile);
     datai = 0;
@@ -217,11 +224,17 @@ int reversenum(int num)
     {
       fputs(index[ind].doc_data[datai].docname, dbfile);
       fputc('|',dbfile);
+      tmpn = index[ind].doc_data[datai].freq;
       num = reversenum(index[ind].doc_data[datai].freq);
       while(num>0)
       {
         fputc((num%10)+'0',dbfile);
         num = num/10;
+      }
+      while(tmpn%10==0)
+      {
+        fputc('0',dbfile);
+        tmpn = tmpn/10;
       }
       if(index[ind].doc_data[datai+1].docname!=NULL)
         fputc('|',dbfile);

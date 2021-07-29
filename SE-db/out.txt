@@ -1,0 +1,1084 @@
+Updating index, adding 'aadithya y'(hashkey-223725436) in document 'database.csv' at position 1
+Updating index, adding 'pescs097'(hashkey-22231490) in document 'database.csv' at position 1
+Updating index, adding 'b'(hashkey-2) in document 'database.csv' at position 0
+Updating index, adding 'bangalor'(hashkey-884299998) in document 'database.csv' at position 4
+Updating index, adding 'fees paid'(hashkey-81964993) in document 'database.csv' at position 3
+Updating index, adding 'good'(hashkey-134051) in document 'database.csv' at position 2
+Updating index, adding 'kcet'(hashkey-600729) in document 'database.csv' at position 3
+Updating index, adding 'pescs263'(hashkey-366523322) in document 'database.csv' at position 7
+Updating index, adding 'a'(hashkey-1) in document 'database.csv' at position 0
+Updating index, adding 'chennai'(hashkey-29513632) in document 'database.csv' at position 6
+Found word 'fees paid' in document 'database.csv' at 7th position in index
+Found word 'good' in document 'database.csv' at 3th position in index
+Updating index, adding 'pessat'(hashkey-574091000) in document 'database.csv' at position 10
+Updating index, adding 'pesme345'(hashkey-632741472) in document 'database.csv' at position 11
+Updating index, adding 'o'(hashkey-15) in document 'database.csv' at position 2
+Updating index, adding 'delhi'(hashkey-8561708) in document 'database.csv' at position 6
+Found word 'fees paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'pessat' in document 'database.csv' at 12th position in index
+Updating index, adding 'pesec111'(hashkey-860431330) in document 'database.csv' at position 14
+Found word 'a' in document 'database.csv' at 0th position in index
+Updating index, adding 'mumbai'(hashkey-258658619) in document 'database.csv' at position 11
+Found word 'fees paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Updating index, adding 'others'(hashkey-560734525) in document 'database.csv' at position 13
+Updating index, adding 'pescv456'(hashkey-76890101) in document 'database.csv' at position 9
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'mumbai' in document 'database.csv' at 12th position in index
+Found word 'fees paid' in document 'database.csv' at 10th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'pessat' in document 'database.csv' at 15th position in index
+Updating index, adding 'pescv859'(hashkey-729248300) in document 'database.csv' at position 17
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'mumbai' in document 'database.csv' at 12th position in index
+Found word 'fees paid' in document 'database.csv' at 10th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'others' in document 'database.csv' at 14th position in index
+Updating index, adding 'pescs853'(hashkey-650794556) in document 'database.csv' at position 17
+Found word 'b' in document 'database.csv' at 1th position in index
+Updating index, adding 'kolkata'(hashkey-461349922) in document 'database.csv' at position 14
+Found word 'fees paid' in document 'database.csv' at 10th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'kcet' in document 'database.csv' at 5th position in index
+Updating index, adding 'pescs854'(hashkey-163408415) in document 'database.csv' at position 11
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'bangalor' in document 'database.csv' at 22th position in index
+Found word 'fees paid' in document 'database.csv' at 10th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'pessat' in document 'database.csv' at 17th position in index
+Updating index, adding 'pescv565'(hashkey-480409065) in document 'database.csv' at position 16
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'chennai' in document 'database.csv' at 8th position in index
+Found word 'fees paid' in document 'database.csv' at 10th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'pessat' in document 'database.csv' at 18th position in index
+Updating index, adding 'pesme452'(hashkey-11032700) in document 'database.csv' at position 7
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'bangalor' in document 'database.csv' at 24th position in index
+Found word 'fees paid' in document 'database.csv' at 11th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'kcet' in document 'database.csv' at 5th position in index
+Updating index, adding 'pesee568'(hashkey-2610376) in document 'database.csv' at position 6
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'mumbai' in document 'database.csv' at 15th position in index
+Found word 'fees paid' in document 'database.csv' at 12th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'kcet' in document 'database.csv' at 5th position in index
+Updating index, adding 'pesec569'(hashkey-513377202) in document 'database.csv' at position 19
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'bangalor' in document 'database.csv' at 26th position in index
+Found word 'fees paid' in document 'database.csv' at 12th position in index
+Found word 'good' in document 'database.csv' at 4th position in index
+Found word 'pessat' in document 'database.csv' at 21th position in index
+Updating index, adding 'pescs324'(hashkey-357751644) in document 'database.csv' at position 16
+Updating index, adding 'ab'(hashkey-63) in document 'database.csv' at position 3
+Found word 'kolkata' in document 'database.csv' at 19th position in index
+Found word 'fees paid' in document 'database.csv' at 13th position in index
+Updating index, adding 'bad'(hashkey-3877) in document 'database.csv' at position 5
+Found word 'others' in document 'database.csv' at 23th position in index
+Updating index, adding 'pescs223'(hashkey-816508634) in document 'database.csv' at position 28
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'bangalor' in document 'database.csv' at 30th position in index
+Found word 'fees paid' in document 'database.csv' at 14th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 24th position in index
+Updating index, adding 'pescs523'(hashkey-902396087) in document 'database.csv' at position 31
+Found word 'b' in document 'database.csv' at 1th position in index
+Updating index, adding 'hyderabad'(hashkey-897146388) in document 'database.csv' at position 31
+Updating index, adding 'fees not paid'(hashkey-1583605) in document 'database.csv' at position 8
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 24th position in index
+Updating index, adding 'pescs229'(hashkey-892191815) in document 'database.csv' at position 32
+Found word 'o' in document 'database.csv' at 2th position in index
+Updating index, adding 'pune'(hashkey-163076) in document 'database.csv' at position 7
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pescs273'(hashkey-254026994) in document 'database.csv' at position 19
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 27th position in index
+Updating index, adding 'pescs693'(hashkey-143550942) in document 'database.csv' at position 17
+Found word 'o' in document 'database.csv' at 2th position in index
+Updating index, adding 'mangalor'(hashkey-884300009) in document 'database.csv' at position 35
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesee223'(hashkey-803638922) in document 'database.csv' at position 32
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 27th position in index
+Updating index, adding 'pesme698'(hashkey-693988880) in document 'database.csv' at position 31
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'mumbai' in document 'database.csv' at 21th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 28th position in index
+Updating index, adding 'pescv324'(hashkey-360522207) in document 'database.csv' at position 23
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'bangalor' in document 'database.csv' at 37th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'bad' in document 'database.csv' at 5th position in index
+Found word 'pessat' in document 'database.csv' at 29th position in index
+Updating index, adding 'pesme558'(hashkey-115345032) in document 'database.csv' at position 17
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'hyderabad' in document 'database.csv' at 41th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 29th position in index
+Updating index, adding 'pescs645'(hashkey-731260309) in document 'database.csv' at position 35
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'hyderabad' in document 'database.csv' at 42th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 29th position in index
+Updating index, adding 'pesec124'(hashkey-285776588) in document 'database.csv' at position 23
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'peec887'(hashkey-366097782) in document 'database.csv' at position 26
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'hyderabad' in document 'database.csv' at 44th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesee541'(hashkey-639305992) in document 'database.csv' at position 34
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'chennai' in document 'database.csv' at 14th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 31th position in index
+Updating index, adding 'pescs783'(hashkey-284676421) in document 'database.csv' at position 23
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 32th position in index
+Updating index, adding 'pesme712'(hashkey-546905465) in document 'database.csv' at position 32
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 16th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 34th position in index
+Updating index, adding 'pesec900'(hashkey-689346998) in document 'database.csv' at position 38
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'hyderabad' in document 'database.csv' at 48th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'bad' in document 'database.csv' at 5th position in index
+Found word 'others' in document 'database.csv' at 33th position in index
+Updating index, adding 'pescc452'(hashkey-8887748) in document 'database.csv' at position 12
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'pune' in document 'database.csv' at 7th position in index
+Found word 'fees paid' in document 'database.csv' at 17th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 35th position in index
+Updating index, adding 'pescs998'(hashkey-792507717) in document 'database.csv' at position 43
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'mangalor' in document 'database.csv' at 48th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pescs989'(hashkey-417617904) in document 'database.csv' at position 30
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'kolkata' in document 'database.csv' at 31th position in index
+Found word 'fees paid' in document 'database.csv' at 17th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pescv999'(hashkey-307892139) in document 'database.csv' at position 26
+Found word 'o' in document 'database.csv' at 2th position in index
+Updating index, adding 'kerala'(hashkey-39758658) in document 'database.csv' at position 16
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'bad' in document 'database.csv' at 5th position in index
+Found word 'pessat' in document 'database.csv' at 38th position in index
+Updating index, adding 'pescs997'(hashkey-279893849) in document 'database.csv' at position 25
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'kolkata' in document 'database.csv' at 34th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 38th position in index
+Updating index, adding 'pesee996'(hashkey-754410278) in document 'database.csv' at position 47
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'chennai' in document 'database.csv' at 15th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesme995'(hashkey-242034738) in document 'database.csv' at position 23
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'hyderabad' in document 'database.csv' at 56th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesec995'(hashkey-239949368) in document 'database.csv' at position 23
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'pune' in document 'database.csv' at 7th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 40th position in index
+Updating index, adding 'pescv994'(hashkey-744822826) in document 'database.csv' at position 49
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'mumbai' in document 'database.csv' at 26th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 40th position in index
+Updating index, adding 'pescs993'(hashkey-229438395) in document 'database.csv' at position 23
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'mumbai' in document 'database.csv' at 27th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 42th position in index
+Updating index, adding 'pescs992'(hashkey-716824536) in document 'database.csv' at position 48
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'hyderabad' in document 'database.csv' at 60th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'bad' in document 'database.csv' at 5th position in index
+Found word 'pessat' in document 'database.csv' at 42th position in index
+Updating index, adding 'pescs991'(hashkey-204210668) in document 'database.csv' at position 22
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'chennai' in document 'database.csv' at 15th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 43th position in index
+Updating index, adding 'pesme990'(hashkey-678965425) in document 'database.csv' at position 47
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'kerala' in document 'database.csv' at 16th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesme988'(hashkey-892372661) in document 'database.csv' at position 62
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'kerala' in document 'database.csv' at 16th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 42th position in index
+Updating index, adding 'pesee987'(hashkey-379520465) in document 'database.csv' at position 37
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'bangalor' in document 'database.csv' at 60th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 44th position in index
+Updating index, adding 'pesme986'(hashkey-867144934) in document 'database.csv' at position 60
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 44th position in index
+Updating index, adding 'pesee985'(hashkey-354292738) in document 'database.csv' at position 33
+Found word 'o' in document 'database.csv' at 2th position in index
+Found word 'delhi' in document 'database.csv' at 11th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 44th position in index
+Updating index, adding 'pescv984'(hashkey-857319154) in document 'database.csv' at position 60
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'kerala' in document 'database.csv' at 16th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'others' in document 'database.csv' at 44th position in index
+Updating index, adding 'pescs983'(hashkey-341934723) in document 'database.csv' at position 33
+Found word 'ab' in document 'database.csv' at 3th position in index
+Found word 'kolkata' in document 'database.csv' at 41th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'pessat' in document 'database.csv' at 46th position in index
+Updating index, adding 'pescs982'(hashkey-829320864) in document 'database.csv' at position 61
+Found word 'a' in document 'database.csv' at 0th position in index
+Found word 'mangalor' in document 'database.csv' at 66th position in index
+Found word 'fees not paid' in document 'database.csv' at 9th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'pesme981'(hashkey-304075612) in document 'database.csv' at position 32
+Found word 'b' in document 'database.csv' at 1th position in index
+Found word 'mumbai' in document 'database.csv' at 28th position in index
+Found word 'fees paid' in document 'database.csv' at 18th position in index
+Found word 'good' in document 'database.csv' at 6th position in index
+Found word 'kcet' in document 'database.csv' at 8th position in index
+Updating index, adding 'look'(hashkey-342593) in document 'db.txt' at position 8
+Updating index, adding 'i'(hashkey-9) in document 'db.txt' at position 2
+Updating index, adding 'did'(hashkey-4127) in document 'db.txt' at position 7
+Updating index, adding 'not'(hashkey-19699) in document 'db.txt' at position 8
+Updating index, adding 'want'(hashkey-609328) in document 'db.txt' at position 13
+Updating index, adding 'to'(hashkey-485) in document 'db.txt' at position 5
+Updating index, adding 'be'(hashkey-157) in document 'db.txt' at position 5
+Updating document list to add 'db.txt' for word 'a'
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'half'(hashkey-190317) in document 'db.txt' at position 13
+Updating index, adding 'blood'(hashkey-4155738) in document 'db.txt' at position 19
+Updating index, adding 'half-blood'(hashkey-911469282) in document 'db.txt' at position 81
+Updating index, adding 'if'(hashkey-195) in document 'db.txt' at position 6
+Updating index, adding 'you'(hashkey-20671) in document 'db.txt' at position 12
+Updating index, adding 'are'(hashkey-5364) in document 'db.txt' at position 11
+Updating index, adding 'read'(hashkey-120298) in document 'db.txt' at position 14
+Updating index, adding 'this'(hashkey-574946) in document 'db.txt' at position 19
+Updating index, adding 'because'(hashkey-899001) in document 'db.txt' at position 22
+Found word 'you' in document 'db.txt' at 13th position in index
+Updating index, adding 'think'(hashkey-10584722) in document 'db.txt' at position 28
+Found word 'you' in document 'db.txt' at 13th position in index
+Updating index, adding 'might'(hashkey-18715767) in document 'db.txt' at position 30
+Found word 'be' in document 'db.txt' at 5th position in index
+Updating index, adding 'one'(hashkey-5254) in document 'db.txt' at position 11
+Updating index, adding 'my'(hashkey-788) in document 'db.txt' at position 8
+Updating index, adding 'advic'(hashkey-3059949) in document 'db.txt' at position 27
+Updating index, adding 'is'(hashkey-598) in document 'db.txt' at position 8
+Updating index, adding 'close'(hashkey-5198424) in document 'db.txt' at position 30
+Found word 'this' in document 'db.txt' at 22th position in index
+Updating index, adding 'book'(hashkey-342583) in document 'db.txt' at position 21
+Updating index, adding 'right'(hashkey-18715772) in document 'db.txt' at position 37
+Updating index, adding 'now'(hashkey-22582) in document 'db.txt' at position 17
+Updating index, adding 'believe'(hashkey-72257095) in document 'db.txt' at position 42
+Updating index, adding 'whatever'(hashkey-299623882) in document 'db.txt' at position 58
+Updating index, adding 'lie'(hashkey-5096) in document 'db.txt' at position 13
+Updating index, adding 'your'(hashkey-556909) in document 'db.txt' at position 25
+Updating index, adding 'mom'(hashkey-12971) in document 'db.txt' at position 16
+Updating index, adding 'or'(hashkey-573) in document 'db.txt' at position 8
+Updating index, adding 'dad'(hashkey-3879) in document 'db.txt' at position 13
+Updating index, adding 'told'(hashkey-131181) in document 'db.txt' at position 23
+Found word 'you' in document 'db.txt' at 20th position in index
+Updating index, adding 'about'(hashkey-19110509) in document 'db.txt' at position 45
+Found word 'your' in document 'db.txt' at 29th position in index
+Updating index, adding 'birth'(hashkey-8001567) in document 'db.txt' at position 39
+Updating index, adding 'and'(hashkey-4279) in document 'db.txt' at position 15
+Updating index, adding 'try'(hashkey-24603) in document 'db.txt' at position 23
+Found word 'to' in document 'db.txt' at 7th position in index
+Updating index, adding 'lead'(hashkey-120292) in document 'db.txt' at position 24
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'normal'(hashkey-344878393) in document 'db.txt' at position 73
+Updating index, adding 'life'(hashkey-155012) in document 'db.txt' at position 28
+Updating index, adding 'being'(hashkey-6890527) in document 'db.txt' at position 43
+Found word 'a' in document 'db.txt' at 0th position in index
+Found word 'half' in document 'db.txt' at 30th position in index
+Found word 'blood' in document 'db.txt' at 41th position in index
+Found word 'half-blood' in document 'db.txt' at 113th position in index
+Found word 'is' in document 'db.txt' at 9th position in index
+Updating index, adding 'danger'(hashkey-520164349) in document 'db.txt' at position 86
+Updating index, adding 'it'(hashkey-629) in document 'db.txt' at position 10
+Found word 'is' in document 'db.txt' at 9th position in index
+Updating index, adding 'scari'(hashkey-8849000) in document 'db.txt' at position 47
+Updating index, adding 'most'(hashkey-614557) in document 'db.txt' at position 38
+Updating index, adding 'of'(hashkey-201) in document 'db.txt' at position 7
+Updating index, adding 'the'(hashkey-5073) in document 'db.txt' at position 18
+Updating index, adding 'time'(hashkey-161747) in document 'db.txt' at position 32
+Found word 'it' in document 'db.txt' at 11th position in index
+Updating index, adding 'gets'(hashkey-585411) in document 'db.txt' at position 39
+Found word 'you' in document 'db.txt' at 24th position in index
+Updating index, adding 'kill'(hashkey-369314) in document 'db.txt' at position 37
+Updating index, adding 'in'(hashkey-443) in document 'db.txt' at position 8
+Updating index, adding 'pain'(hashkey-425770) in document 'db.txt' at position 39
+Updating index, adding 'nasti'(hashkey-8925813) in document 'db.txt' at position 57
+Updating index, adding 'wai'(hashkey-8703) in document 'db.txt' at position 23
+Found word 'if' in document 'db.txt' at 6th position in index
+Found word 'you' in document 'db.txt' at 26th position in index
+Found word 'are' in document 'db.txt' at 22th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Found word 'normal' in document 'db.txt' at 87th position in index
+Updating index, adding 'kid'(hashkey-4134) in document 'db.txt' at position 18
+Found word 'read' in document 'db.txt' at 31th position in index
+Found word 'this' in document 'db.txt' at 43th position in index
+Found word 'because' in document 'db.txt' at 48th position in index
+Found word 'you' in document 'db.txt' at 27th position in index
+Found word 'think' in document 'db.txt' at 60th position in index
+Found word 'it' in document 'db.txt' at 12th position in index
+Found word 'is' in document 'db.txt' at 11th position in index
+Updating index, adding 'fiction'(hashkey-863399368) in document 'db.txt' at position 120
+Updating index, adding 'great'(hashkey-18505581) in document 'db.txt' at position 62
+Found word 'read' in document 'db.txt' at 31th position in index
+Updating index, adding 'on'(hashkey-449) in document 'db.txt' at position 9
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'envy'(hashkey-766356) in document 'db.txt' at position 49
+Found word 'you' in document 'db.txt' at 28th position in index
+Updating index, adding 'for'(hashkey-17769) in document 'db.txt' at position 27
+Found word 'being' in document 'db.txt' at 57th position in index
+Updating index, adding 'able'(hashkey-160550) in document 'db.txt' at position 37
+Found word 'to' in document 'db.txt' at 10th position in index
+Found word 'believe' in document 'db.txt' at 73th position in index
+Updating index, adding 'that'(hashkey-597049) in document 'db.txt' at position 48
+Updating index, adding 'none'(hashkey-162888) in document 'db.txt' at position 39
+Found word 'of' in document 'db.txt' at 7th position in index
+Found word 'this' in document 'db.txt' at 47th position in index
+Updating index, adding 'ever'(hashkey-541730) in document 'db.txt' at position 46
+Updating index, adding 'happen'(hashkey-405917790) in document 'db.txt' at position 103
+Updating index, adding 'but'(hashkey-19873) in document 'db.txt' at position 29
+Found word 'if' in document 'db.txt' at 6th position in index
+Found word 'you' in document 'db.txt' at 30th position in index
+Updating index, adding 'recogn'(hashkey-407722682) in document 'db.txt' at position 105
+Updating index, adding 'yourself'(hashkey-886976826) in document 'db.txt' at position 135
+Found word 'in' in document 'db.txt' at 8th position in index
+Updating index, adding 'these'(hashkey-5188707) in document 'db.txt' at position 61
+Updating index, adding 'pages'(hashkey-17702628) in document 'db.txt' at position 71
+Found word 'if' in document 'db.txt' at 6th position in index
+Found word 'you' in document 'db.txt' at 30th position in index
+Updating index, adding 'feel'(hashkey-362458) in document 'db.txt' at position 45
+Updating index, adding 'something'(hashkey-649001063) in document 'db.txt' at position 119
+Updating index, adding 'stir'(hashkey-545526) in document 'db.txt' at position 49
+Updating index, adding 'inside'(hashkey-147126660) in document 'db.txt' at position 86
+Updating index, adding 'stop'(hashkey-491710) in document 'db.txt' at position 48
+Found word 'read' in document 'db.txt' at 34th position in index
+Updating index, adding 'immedi'(hashkey-261518303) in document 'db.txt' at position 96
+Found word 'you' in document 'db.txt' at 30th position in index
+Found word 'might' in document 'db.txt' at 76th position in index
+Found word 'be' in document 'db.txt' at 5th position in index
+Found word 'one' in document 'db.txt' at 23th position in index
+Found word 'of' in document 'db.txt' at 7th position in index
+Updating index, adding 'us'(hashkey-610) in document 'db.txt' at position 13
+Found word 'and' in document 'db.txt' at 21th position in index
+Updating index, adding 'once'(hashkey-152287) in document 'db.txt' at position 38
+Found word 'you' in document 'db.txt' at 31th position in index
+Updating index, adding 'know'(hashkey-700053) in document 'db.txt' at position 60
+Found word 'that' in document 'db.txt' at 56th position in index
+Found word 'it' in document 'db.txt' at 14th position in index
+Found word 'is' in document 'db.txt' at 12th position in index
+Updating index, adding 'only'(hashkey-756756) in document 'db.txt' at position 61
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'matter'(hashkey-520557407) in document 'db.txt' at position 122
+Found word 'of' in document 'db.txt' at 7th position in index
+Found word 'time' in document 'db.txt' at 41th position in index
+Updating index, adding 'before'(hashkey-160221921) in document 'db.txt' at position 92
+Updating index, adding 'they'(hashkey-749848) in document 'db.txt' at position 61
+Updating index, adding 'sens'(hashkey-579657) in document 'db.txt' at position 55
+Found word 'it' in document 'db.txt' at 14th position in index
+Updating index, adding 'too'(hashkey-14900) in document 'db.txt' at position 28
+Found word 'and' in document 'db.txt' at 21th position in index
+Found word 'they' in document 'db.txt' at 63th position in index
+Updating index, adding 'will'(hashkey-369326) in document 'db.txt' at position 50
+Updating index, adding 'come'(hashkey-161916) in document 'db.txt' at position 43
+Found word 'for' in document 'db.txt' at 29th position in index
+Found word 'you' in document 'db.txt' at 32th position in index
+Updating index, adding 'do'(hashkey-469) in document 'db.txt' at position 10
+Found word 'not' in document 'db.txt' at 31th position in index
+Updating index, adding 'say'(hashkey-24075) in document 'db.txt' at position 35
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'did' in document 'db.txt' at 20th position in index
+Found word 'not' in document 'db.txt' at 31th position in index
+Updating index, adding 'warn'(hashkey-434426) in document 'db.txt' at position 55
+Found word 'you' in document 'db.txt' at 33th position in index
+Found word 'my' in document 'db.txt' at 16th position in index
+Updating index, adding 'name'(hashkey-161493) in document 'db.txt' at position 44
+Found word 'is' in document 'db.txt' at 13th position in index
+Updating index, adding 'perci'(hashkey-8418531) in document 'db.txt' at position 81
+Updating index, adding 'jackson'(hashkey-872366215) in document 'db.txt' at position 157
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'am'(hashkey-404) in document 'db.txt' at position 8
+Updating index, adding 'twelve'(hashkey-163826247) in document 'db.txt' at position 105
+Updating index, adding 'year'(hashkey-537379) in document 'db.txt' at position 59
+Updating index, adding 'old'(hashkey-4231) in document 'db.txt' at position 23
+Updating index, adding 'until'(hashkey-11370046) in document 'db.txt' at position 91
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'few'(hashkey-22264) in document 'db.txt' at position 36
+Updating index, adding 'month'(hashkey-7997920) in document 'db.txt' at position 84
+Updating index, adding 'ago'(hashkey-14633) in document 'db.txt' at position 31
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'was'(hashkey-18313) in document 'db.txt' at position 34
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'board'(hashkey-4231750) in document 'db.txt' at position 83
+Updating index, adding 'student'(hashkey-155639161) in document 'db.txt' at position 111
+Updating index, adding 'at'(hashkey-621) in document 'db.txt' at position 16
+Updating index, adding 'yanci'(hashkey-8414572) in document 'db.txt' at position 90
+Updating index, adding 'academi'(hashkey-364449844) in document 'db.txt' at position 136
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'privat'(hashkey-574171166) in document 'db.txt' at position 151
+Updating index, adding 'school'(hashkey-357857292) in document 'db.txt' at position 135
+Found word 'for' in document 'db.txt' at 34th position in index
+Updating index, adding 'trouble'(hashkey-783555827) in document 'db.txt' at position 165
+Found word 'kid' in document 'db.txt' at 23th position in index
+Found word 'in' in document 'db.txt' at 9th position in index
+Updating index, adding 'upstat'(hashkey-574121137) in document 'db.txt' at position 152
+Updating index, adding 'new'(hashkey-22272) in document 'db.txt' at position 40
+Updating index, adding 'york'(hashkey-345489) in document 'db.txt' at position 59
+Found word 'am' in document 'db.txt' at 8th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Found word 'trouble' in document 'db.txt' at 168th position in index
+Found word 'kid' in document 'db.txt' at 23th position in index
+Updating index, adding 'yeah'(hashkey-239469) in document 'db.txt' at position 57
+Found word 'you' in document 'db.txt' at 38th position in index
+Updating index, adding 'could'(hashkey-4072225) in document 'db.txt' at position 86
+Found word 'say' in document 'db.txt' at 42th position in index
+Found word 'that' in document 'db.txt' at 74th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'could' in document 'db.txt' at 86th position in index
+Updating index, adding 'start'(hashkey-19008258) in document 'db.txt' at position 107
+Found word 'at' in document 'db.txt' at 16th position in index
+Updating index, adding 'any'(hashkey-24460) in document 'db.txt' at position 43
+Updating index, adding 'point'(hashkey-18896624) in document 'db.txt' at position 108
+Found word 'in' in document 'db.txt' at 9th position in index
+Found word 'my' in document 'db.txt' at 18th position in index
+Updating index, adding 'short'(hashkey-19021340) in document 'db.txt' at position 110
+Updating index, adding 'miser'(hashkey-16790884) in document 'db.txt' at position 104
+Found word 'life' in document 'db.txt' at 50th position in index
+Found word 'to' in document 'db.txt' at 12th position in index
+Updating index, adding 'prove'(hashkey-5287996) in document 'db.txt' at position 92
+Found word 'it' in document 'db.txt' at 17th position in index
+Found word 'but' in document 'db.txt' at 37th position in index
+Updating index, adding 'things'(hashkey-550844507) in document 'db.txt' at position 160
+Updating index, adding 'really'(hashkey-727169653) in document 'db.txt' at position 173
+Found word 'start' in document 'db.txt' at 111th position in index
+Updating index, adding 'going'(hashkey-6890842) in document 'db.txt' at position 94
+Updating document list to add 'db.txt' for word 'bad'
+Found word 'bad' in document 'db.txt' at 20th position in index
+Updating index, adding 'last'(hashkey-614122) in document 'db.txt' at position 78
+Updating index, adding 'may'(hashkey-24069) in document 'db.txt' at position 42
+Updating index, adding 'when'(hashkey-422150) in document 'db.txt' at position 66
+Updating index, adding 'our'(hashkey-17964) in document 'db.txt' at position 35
+Updating index, adding 'sixth'(hashkey-8007350) in document 'db.txt' at position 101
+Updating index, adding 'grade'(hashkey-4738295) in document 'db.txt' at position 94
+Updating index, adding 'sixth-grade'(hashkey-369824018) in document 'db.txt' at position 157
+Updating index, adding 'class'(hashkey-18114264) in document 'db.txt' at position 114
+Updating index, adding 'took'(hashkey-342601) in document 'db.txt' at position 63
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'field'(hashkey-4056666) in document 'db.txt' at position 92
+Updating index, adding 'trip'(hashkey-485883) in document 'db.txt' at position 71
+Found word 'to' in document 'db.txt' at 12th position in index
+Updating index, adding 'manhattan'(hashkey-310862398) in document 'db.txt' at position 152
+Updating index, adding 'twenty'(hashkey-734621807) in document 'db.txt' at position 189
+Updating index, adding 'eight'(hashkey-18715759) in document 'db.txt' at position 119
+Updating index, adding 'twenty-eight'(hashkey-590337941) in document 'db.txt' at position 179
+Updating index, adding 'mental'(hashkey-345082775) in document 'db.txt' at position 156
+Updating index, adding 'case'(hashkey-167248) in document 'db.txt' at position 59
+Updating index, adding 'mental-case'(hashkey-559386766) in document 'db.txt' at position 177
+Found word 'kid' in document 'db.txt' at 23th position in index
+Found word 'and' in document 'db.txt' at 25th position in index
+Updating index, adding 'two'(hashkey-15148) in document 'db.txt' at position 34
+Updating index, adding 'teacher'(hashkey-125690546) in document 'db.txt' at position 135
+Found word 'on' in document 'db.txt' at 10th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'yellow'(hashkey-672692492) in document 'db.txt' at position 189
+Found word 'school' in document 'db.txt' at 162th position in index
+Updating index, adding 'bus'(hashkey-18912) in document 'db.txt' at position 38
+Updating index, adding 'head'(hashkey-120288) in document 'db.txt' at position 49
+Found word 'to' in document 'db.txt' at 12th position in index
+Found word 'the' in document 'db.txt' at 26th position in index
+Updating index, adding 'metropolitan'(hashkey-21922202) in document 'db.txt' at position 130
+Updating index, adding 'museum'(hashkey-391740782) in document 'db.txt' at position 172
+Found word 'of' in document 'db.txt' at 7th position in index
+Updating index, adding 'art'(hashkey-19779) in document 'db.txt' at position 40
+Found word 'to' in document 'db.txt' at 12th position in index
+Found word 'look' in document 'db.txt' at 67th position in index
+Found word 'at' in document 'db.txt' at 16th position in index
+Updating index, adding 'ancient'(hashkey-155770614) in document 'db.txt' at position 143
+Updating index, adding 'greek'(hashkey-10313056) in document 'db.txt' at position 117
+Found word 'and' in document 'db.txt' at 25th position in index
+Updating index, adding 'roman'(hashkey-12972061) in document 'db.txt' at position 121
+Updating index, adding 'stuff'(hashkey-5740692) in document 'db.txt' at position 106
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'know' in document 'db.txt' at 90th position in index
+Found word 'it' in document 'db.txt' at 17th position in index
+Updating index, adding 'sound'(hashkey-4131823) in document 'db.txt' at position 100
+Updating index, adding 'like'(hashkey-159817) in document 'db.txt' at position 57
+Updating index, adding 'tortur'(hashkey-535332262) in document 'db.txt' at position 188
+Found word 'most' in document 'db.txt' at 90th position in index
+Found word 'yanci' in document 'db.txt' at 114th position in index
+Found word 'field' in document 'db.txt' at 99th position in index
+Found word 'trip' in document 'db.txt' at 77th position in index
+Updating index, adding 'were'(hashkey-166431) in document 'db.txt' at position 64
+Found word 'but' in document 'db.txt' at 41th position in index
+Updating index, adding 'mr'(hashkey-571) in document 'db.txt' at position 13
+Updating index, adding 'brunner'(hashkey-131578978) in document 'db.txt' at position 147
+Found word 'our' in document 'db.txt' at 37th position in index
+Updating index, adding 'latin'(hashkey-13216676) in document 'db.txt' at position 127
+Found word 'teacher' in document 'db.txt' at 147th position in index
+Found word 'was' in document 'db.txt' at 38th position in index
+Found word 'lead' in document 'db.txt' at 52th position in index
+Found word 'this' in document 'db.txt' at 85th position in index
+Found word 'trip' in document 'db.txt' at 79th position in index
+Updating index, adding 'so'(hashkey-484) in document 'db.txt' at position 12
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'had'(hashkey-3883) in document 'db.txt' at position 24
+Updating index, adding 'hope'(hashkey-164804) in document 'db.txt' at position 67
+Found word 'mr' in document 'db.txt' at 14th position in index
+Found word 'brunner' in document 'db.txt' at 151th position in index
+Found word 'was' in document 'db.txt' at 40th position in index
+Found word 'this' in document 'db.txt' at 88th position in index
+Updating index, adding 'middl'(hashkey-11205552) in document 'db.txt' at position 128
+Updating index, adding 'aged'(hashkey-124187) in document 'db.txt' at position 56
+Updating index, adding 'middle-aged'(hashkey-572991710) in document 'db.txt' at position 202
+Updating index, adding 'guy'(hashkey-24683) in document 'db.txt' at position 53
+Found word 'in' in document 'db.txt' at 9th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'motorize'(hashkey-912917121) in document 'db.txt' at position 241
+Updating index, adding 'wheelchair'(hashkey-923643735) in document 'db.txt' at position 242
+Updating index, adding 'he'(hashkey-163) in document 'db.txt' at position 6
+Found word 'had' in document 'db.txt' at 25th position in index
+Updating index, adding 'thin'(hashkey-425991) in document 'db.txt' at position 84
+Updating index, adding 'hair'(hashkey-544926) in document 'db.txt' at position 90
+Found word 'and' in document 'db.txt' at 29th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'scruffi'(hashkey-165492110) in document 'db.txt' at position 165
+Updating index, adding 'beard'(hashkey-4231440) in document 'db.txt' at position 113
+Found word 'and' in document 'db.txt' at 29th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'frai'(hashkey-269644) in document 'db.txt' at position 75
+Updating index, adding 'twe'(hashkey-5538) in document 'db.txt' at position 34
+Updating index, adding 'jacket'(hashkey-577531250) in document 'db.txt' at position 214
+Updating index, adding 'which'(hashkey-7486461) in document 'db.txt' at position 124
+Updating index, adding 'always'(hashkey-567094161) in document 'db.txt' at position 211
+Updating index, adding 'smell'(hashkey-11444971) in document 'db.txt' at position 139
+Found word 'like' in document 'db.txt' at 64th position in index
+Updating index, adding 'coffe'(hashkey-4802585) in document 'db.txt' at position 118
+Found word 'you' in document 'db.txt' at 47th position in index
+Updating index, adding 'would'(hashkey-4072245) in document 'db.txt' at position 113
+Found word 'not' in document 'db.txt' at 44th position in index
+Found word 'think' in document 'db.txt' at 137th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'had' in document 'db.txt' at 25th position in index
+Found word 'would' in document 'db.txt' at 113th position in index
+Found word 'be' in document 'db.txt' at 5th position in index
+Updating index, adding 'cool'(hashkey-372375) in document 'db.txt' at position 84
+Found word 'but' in document 'db.txt' at 46th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'told' in document 'db.txt' at 60th position in index
+Updating index, adding 'stori'(hashkey-8862981) in document 'db.txt' at position 135
+Found word 'and' in document 'db.txt' at 29th position in index
+Updating index, adding 'joke'(hashkey-160001) in document 'db.txt' at position 65
+Found word 'and' in document 'db.txt' at 29th position in index
+Updating index, adding 'let'(hashkey-19387) in document 'db.txt' at position 44
+Found word 'us' in document 'db.txt' at 18th position in index
+Updating index, adding 'plai'(hashkey-269468) in document 'db.txt' at position 78
+Updating index, adding 'game'(hashkey-161486) in document 'db.txt' at position 68
+Found word 'in' in document 'db.txt' at 10th position in index
+Found word 'class' in document 'db.txt' at 152th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'also'(hashkey-465497) in document 'db.txt' at position 93
+Found word 'had' in document 'db.txt' at 25th position in index
+Found word 'this' in document 'db.txt' at 101th position in index
+Updating index, adding 'awesom'(hashkey-386603326) in document 'db.txt' at position 207
+Updating index, adding 'collect'(hashkey-840948017) in document 'db.txt' at position 249
+Found word 'of' in document 'db.txt' at 8th position in index
+Found word 'roman' in document 'db.txt' at 149th position in index
+Updating index, adding 'armour'(hashkey-535178576) in document 'db.txt' at position 217
+Found word 'and' in document 'db.txt' at 29th position in index
+Updating index, adding 'weapon'(hashkey-415138724) in document 'db.txt' at position 211
+Found word 'so' in document 'db.txt' at 13th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'was' in document 'db.txt' at 42th position in index
+Found word 'the' in document 'db.txt' at 30th position in index
+Found word 'only' in document 'db.txt' at 111th position in index
+Found word 'teacher' in document 'db.txt' at 170th position in index
+Updating index, adding 'whose'(hashkey-5198320) in document 'db.txt' at position 127
+Found word 'class' in document 'db.txt' at 154th position in index
+Found word 'did' in document 'db.txt' at 26th position in index
+Found word 'not' in document 'db.txt' at 45th position in index
+Updating index, adding 'put'(hashkey-19887) in document 'db.txt' at position 48
+Updating index, adding 'me'(hashkey-168) in document 'db.txt' at position 7
+Found word 'to' in document 'db.txt' at 15th position in index
+Updating index, adding 'sleep'(hashkey-14930487) in document 'db.txt' at position 154
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'hope' in document 'db.txt' at 76th position in index
+Found word 'the' in document 'db.txt' at 31th position in index
+Found word 'trip' in document 'db.txt' at 96th position in index
+Found word 'would' in document 'db.txt' at 121th position in index
+Found word 'be' in document 'db.txt' at 5th position in index
+Updating index, adding 'okay'(hashkey-746092) in document 'db.txt' at position 112
+Found word 'at' in document 'db.txt' at 20th position in index
+Updating index, adding 'least'(hashkey-19037577) in document 'db.txt' at position 166
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'hope' in document 'db.txt' at 76th position in index
+Found word 'that' in document 'db.txt' at 106th position in index
+Found word 'for' in document 'db.txt' at 41th position in index
+Found word 'once' in document 'db.txt' at 65th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'would' in document 'db.txt' at 122th position in index
+Found word 'not' in document 'db.txt' at 46th position in index
+Updating index, adding 'get'(hashkey-19382) in document 'db.txt' at position 45
+Found word 'in' in document 'db.txt' at 11th position in index
+Updating index, adding 'troubl'(hashkey-346037458) in document 'db.txt' at position 205
+Updating index, adding 'boy'(hashkey-24492) in document 'db.txt' at position 58
+Found word 'was' in document 'db.txt' at 43th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'wrong'(hashkey-6896717) in document 'db.txt' at position 138
+Updating index, adding 'see'(hashkey-4979) in document 'db.txt' at position 31
+Found word 'bad' in document 'db.txt' at 24th position in index
+Found word 'things' in document 'db.txt' at 232th position in index
+Found word 'happen' in document 'db.txt' at 220th position in index
+Found word 'to' in document 'db.txt' at 15th position in index
+Found word 'me' in document 'db.txt' at 7th position in index
+Found word 'on' in document 'db.txt' at 12th position in index
+Found word 'field' in document 'db.txt' at 123th position in index
+Found word 'trip' in document 'db.txt' at 99th position in index
+Found word 'like' in document 'db.txt' at 70th position in index
+Found word 'at' in document 'db.txt' at 20th position in index
+Found word 'my' in document 'db.txt' at 22th position in index
+Updating index, adding 'fifth'(hashkey-7990039) in document 'db.txt' at position 141
+Found word 'grade' in document 'db.txt' at 130th position in index
+Updating index, adding 'fifth-grade'(hashkey-369806707) in document 'db.txt' at position 217
+Found word 'school' in document 'db.txt' at 212th position in index
+Found word 'when' in document 'db.txt' at 94th position in index
+Updating index, adding 'we'(hashkey-178) in document 'db.txt' at position 8
+Updating index, adding 'went'(hashkey-609452) in document 'db.txt' at position 113
+Found word 'to' in document 'db.txt' at 16th position in index
+Found word 'the' in document 'db.txt' at 33th position in index
+Updating index, adding 'saratoga'(hashkey-173094396) in document 'db.txt' at position 193
+Updating index, adding 'battlefield'(hashkey-130027872) in document 'db.txt' at position 184
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'had' in document 'db.txt' at 27th position in index
+Found word 'this' in document 'db.txt' at 107th position in index
+Updating index, adding 'accid'(hashkey-3965180) in document 'db.txt' at position 125
+Updating index, adding 'with'(hashkey-257850) in document 'db.txt' at position 85
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'revolutionari'(hashkey-643706131) in document 'db.txt' at position 252
+Updating index, adding 'war'(hashkey-17352) in document 'db.txt' at position 43
+Updating index, adding 'cannon'(hashkey-415091491) in document 'db.txt' at position 231
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'was' in document 'db.txt' at 46th position in index
+Found word 'not' in document 'db.txt' at 50th position in index
+Updating index, adding 'aim'(hashkey-12773) in document 'db.txt' at position 39
+Found word 'for' in document 'db.txt' at 45th position in index
+Found word 'the' in document 'db.txt' at 33th position in index
+Found word 'school' in document 'db.txt' at 220th position in index
+Found word 'bus' in document 'db.txt' at 48th position in index
+Found word 'but' in document 'db.txt' at 53th position in index
+Found word 'of' in document 'db.txt' at 10th position in index
+Updating index, adding 'course'(hashkey-161249541) in document 'db.txt' at position 195
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'got'(hashkey-19692) in document 'db.txt' at position 51
+Updating index, adding 'expell'(hashkey-354797144) in document 'db.txt' at position 221
+Updating index, adding 'anyway'(hashkey-717361949) in document 'db.txt' at position 266
+Found word 'and' in document 'db.txt' at 31th position in index
+Found word 'before' in document 'db.txt' at 195th position in index
+Found word 'that' in document 'db.txt' at 114th position in index
+Found word 'at' in document 'db.txt' at 21th position in index
+Found word 'my' in document 'db.txt' at 23th position in index
+Updating index, adding 'fourth'(hashkey-248060518) in document 'db.txt' at position 206
+Found word 'grade' in document 'db.txt' at 137th position in index
+Updating index, adding 'fourth-grade'(hashkey-464377127) in document 'db.txt' at position 240
+Found word 'school' in document 'db.txt' at 224th position in index
+Found word 'when' in document 'db.txt' at 99th position in index
+Found word 'we' in document 'db.txt' at 8th position in index
+Found word 'took' in document 'db.txt' at 93th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'behind-the-scenes'(hashkey-375996303) in document 'db.txt' at position 231
+Updating index, adding 'tour'(hashkey-556904) in document 'db.txt' at position 110
+Found word 'of' in document 'db.txt' at 10th position in index
+Found word 'the' in document 'db.txt' at 33th position in index
+Updating index, adding 'marin'(hashkey-13214755) in document 'db.txt' at position 167
+Updating index, adding 'world'(hashkey-4069362) in document 'db.txt' at position 132
+Updating index, adding 'shark'(hashkey-10696197) in document 'db.txt' at position 163
+Updating index, adding 'pool'(hashkey-372388) in document 'db.txt' at position 99
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'sort'(hashkey-613602) in document 'db.txt' at position 120
+Found word 'of' in document 'db.txt' at 10th position in index
+Updating index, adding 'hit'(hashkey-19507) in document 'db.txt' at position 51
+Found word 'the' in document 'db.txt' at 33th position in index
+Found word 'wrong' in document 'db.txt' at 151th position in index
+Updating index, adding 'lever'(hashkey-16793642) in document 'db.txt' at position 176
+Found word 'on' in document 'db.txt' at 13th position in index
+Found word 'the' in document 'db.txt' at 33th position in index
+Updating index, adding 'catwalk'(hashkey-107718181) in document 'db.txt' at position 195
+Found word 'and' in document 'db.txt' at 31th position in index
+Found word 'our' in document 'db.txt' at 46th position in index
+Found word 'class' in document 'db.txt' at 178th position in index
+Found word 'took' in document 'db.txt' at 94th position in index
+Updating index, adding 'an'(hashkey-435) in document 'db.txt' at position 12
+Updating index, adding 'unplan'(hashkey-402104958) in document 'db.txt' at position 245
+Updating index, adding 'swim'(hashkey-396664) in document 'db.txt' at position 102
+Found word 'and' in document 'db.txt' at 32th position in index
+Found word 'the' in document 'db.txt' at 34th position in index
+Found word 'time' in document 'db.txt' at 81th position in index
+Found word 'before' in document 'db.txt' at 206th position in index
+Found word 'that' in document 'db.txt' at 119th position in index
+Updating index, adding 'well'(hashkey-369202) in document 'db.txt' at position 98
+Found word 'you' in document 'db.txt' at 58th position in index
+Found word 'get' in document 'db.txt' at 50th position in index
+Found word 'the' in document 'db.txt' at 34th position in index
+Updating index, adding 'idea'(hashkey-34729) in document 'db.txt' at position 68
+Found word 'this' in document 'db.txt' at 118th position in index
+Found word 'trip' in document 'db.txt' at 110th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'was' in document 'db.txt' at 48th position in index
+Updating index, adding 'determin'(hashkey-553097821) in document 'db.txt' at position 264
+Found word 'to' in document 'db.txt' at 17th position in index
+Found word 'be' in document 'db.txt' at 5th position in index
+Updating document list to add 'db.txt' for word 'good'
+Found word 'good' in document 'db.txt' at 74th position in index
+Updating index, adding 'all'(hashkey-11905) in document 'db.txt' at position 40
+Found word 'the' in document 'db.txt' at 34th position in index
+Updating index, adding 'way'(hashkey-24079) in document 'db.txt' at position 65
+Updating index, adding 'into'(hashkey-466528) in document 'db.txt' at position 112
+Found word 'the' in document 'db.txt' at 34th position in index
+Updating index, adding 'citi'(hashkey-287621) in document 'db.txt' at position 96
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'put' in document 'db.txt' at 58th position in index
+Updating index, adding 'up'(hashkey-517) in document 'db.txt' at position 18
+Found word 'with' in document 'db.txt' at 94th position in index
+Updating index, adding 'nanci'(hashkey-8414561) in document 'db.txt' at position 166
+Updating index, adding 'bobofit'(hashkey-13726197) in document 'db.txt' at position 184
+Found word 'the' in document 'db.txt' at 35th position in index
+Updating index, adding 'freckli'(hashkey-341336342) in document 'db.txt' at position 237
+Updating index, adding 'red'(hashkey-4017) in document 'db.txt' at position 30
+Found word 'head' in document 'db.txt' at 73th position in index
+Updating index, adding 'red-headed'(hashkey-710692176) in document 'db.txt' at position 292
+Updating index, adding 'kleptomaniac'(hashkey-853062054) in document 'db.txt' at position 307
+Updating index, adding 'girl'(hashkey-375076) in document 'db.txt' at position 109
+Found word 'hit' in document 'db.txt' at 55th position in index
+Found word 'my' in document 'db.txt' at 25th position in index
+Updating index, adding 'best'(hashkey-614236) in document 'db.txt' at position 134
+Updating index, adding 'friend'(hashkey-127604066) in document 'db.txt' at position 212
+Updating index, adding 'grover'(hashkey-520612705) in document 'db.txt' at position 272
+Found word 'in' in document 'db.txt' at 13th position in index
+Found word 'the' in document 'db.txt' at 36th position in index
+Updating index, adding 'back'(hashkey-330617) in document 'db.txt' at position 99
+Found word 'of' in document 'db.txt' at 10th position in index
+Found word 'the' in document 'db.txt' at 36th position in index
+Found word 'head' in document 'db.txt' at 73th position in index
+Found word 'with' in document 'db.txt' at 95th position in index
+Updating index, adding 'chunk'(hashkey-10596237) in document 'db.txt' at position 180
+Found word 'of' in document 'db.txt' at 10th position in index
+Updating index, adding 'peanut'(hashkey-592395167) in document 'db.txt' at position 289
+Updating index, adding 'butter-and-ketchup'(hashkey-937015830) in document 'db.txt' at position 330
+Updating index, adding 'sandwich'(hashkey-42457934) in document 'db.txt' at position 208
+Found word 'grover' in document 'db.txt' at 275th position in index
+Found word 'was' in document 'db.txt' at 51th position in index
+Found word 'an' in document 'db.txt' at 12th position in index
+Updating index, adding 'easi'(hashkey-286414) in document 'db.txt' at position 98
+Updating index, adding 'target'(hashkey-577426511) in document 'db.txt' at position 289
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'was' in document 'db.txt' at 51th position in index
+Updating index, adding 'scrawni'(hashkey-409629355) in document 'db.txt' at position 267
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'cri'(hashkey-9210) in document 'db.txt' at position 42
+Found word 'when' in document 'db.txt' at 114th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'got' in document 'db.txt' at 57th position in index
+Updating index, adding 'frustrate'(hashkey-129311674) in document 'db.txt' at position 218
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'must'(hashkey-614743) in document 'db.txt' at position 139
+Updating index, adding 'have'(hashkey-170136) in document 'db.txt' at position 94
+Updating index, adding 'been'(hashkey-422036) in document 'db.txt' at position 115
+Updating index, adding 'held'(hashkey-130859) in document 'db.txt' at position 78
+Found word 'back' in document 'db.txt' at 103th position in index
+Updating index, adding 'several'(hashkey-695466882) in document 'db.txt' at position 309
+Found word 'grade' in document 'db.txt' at 161th position in index
+Found word 'because' in document 'db.txt' at 148th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'was' in document 'db.txt' at 52th position in index
+Found word 'the' in document 'db.txt' at 36th position in index
+Found word 'only' in document 'db.txt' at 146th position in index
+Found word 'sixth' in document 'db.txt' at 175th position in index
+Updating index, adding 'grader'(hashkey-520063013) in document 'db.txt' at position 281
+Found word 'with' in document 'db.txt' at 98th position in index
+Updating index, adding 'acn'(hashkey-13548) in document 'db.txt' at position 46
+Found word 'and' in document 'db.txt' at 34th position in index
+Found word 'the' in document 'db.txt' at 36th position in index
+Found word 'start' in document 'db.txt' at 207th position in index
+Found word 'of' in document 'db.txt' at 10th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'wispi'(hashkey-8806906) in document 'db.txt' at position 181
+Found word 'beard' in document 'db.txt' at 160th position in index
+Found word 'on' in document 'db.txt' at 14th position in index
+Updating index, adding 'his'(hashkey-18546) in document 'db.txt' at position 54
+Updating index, adding 'chin'(hashkey-425974) in document 'db.txt' at position 121
+Found word 'on' in document 'db.txt' at 14th position in index
+Updating index, adding 'top'(hashkey-15861) in document 'db.txt' at position 50
+Found word 'of' in document 'db.txt' at 10th position in index
+Found word 'all' in document 'db.txt' at 43th position in index
+Found word 'that' in document 'db.txt' at 138th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'was' in document 'db.txt' at 54th position in index
+Updating index, adding 'crippl'(hashkey-358812014) in document 'db.txt' at position 265
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'had' in document 'db.txt' at 29th position in index
+Found word 'a' in document 'db.txt' at 0th position in index
+Updating index, adding 'note'(hashkey-168654) in document 'db.txt' at position 98
+Updating index, adding 'excu'(hashkey-629243) in document 'db.txt' at position 148
+Updating index, adding 'him'(hashkey-12780) in document 'db.txt' at position 45
+Updating index, adding 'from'(hashkey-402262) in document 'db.txt' at position 121
+Updating index, adding 'pe'(hashkey-171) in document 'db.txt' at position 8
+Found word 'for' in document 'db.txt' at 54th position in index
+Found word 'the' in document 'db.txt' at 37th position in index
+Updating index, adding 'rest'(hashkey-614252) in document 'db.txt' at position 149
+Found word 'of' in document 'db.txt' at 11th position in index
+Found word 'his' in document 'db.txt' at 57th position in index
+Found word 'life' in document 'db.txt' at 87th position in index
+Found word 'because' in document 'db.txt' at 158th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Found word 'had' in document 'db.txt' at 30th position in index
+Updating index, adding 'some'(hashkey-161932) in document 'db.txt' at position 95
+Updating index, adding 'kind'(hashkey-132908) in document 'db.txt' at position 85
+Found word 'of' in document 'db.txt' at 11th position in index
+Updating index, adding 'muscular'(hashkey-477605264) in document 'db.txt' at position 293
+Updating index, adding 'diseas'(hashkey-545044887) in document 'db.txt' at position 302
+Found word 'in' in document 'db.txt' at 14th position in index
+Found word 'his' in document 'db.txt' at 57th position in index
+Updating index, adding 'leg'(hashkey-6894) in document 'db.txt' at position 42
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'walk'(hashkey-339287) in document 'db.txt' at position 113
+Updating index, adding 'funni'(hashkey-8742874) in document 'db.txt' at position 194
+Found word 'like' in document 'db.txt' at 90th position in index
+Updating index, adding 'every'(hashkey-23629755) in document 'db.txt' at position 228
+Updating index, adding 'step'(hashkey-482100) in document 'db.txt' at position 135
+Updating index, adding 'hurt'(hashkey-613777) in document 'db.txt' at position 152
+Found word 'him' in document 'db.txt' at 47th position in index
+Found word 'but' in document 'db.txt' at 66th position in index
+Found word 'do' in document 'db.txt' at 16th position in index
+Found word 'not' in document 'db.txt' at 64th position in index
+Found word 'let' in document 'db.txt' at 61th position in index
+Found word 'that' in document 'db.txt' at 147th position in index
+Updating index, adding 'fool'(hashkey-372378) in document 'db.txt' at position 123
+Found word 'you' in document 'db.txt' at 68th position in index
+Found word 'you' in document 'db.txt' at 68th position in index
+Updating index, adding 'should'(hashkey-126239149) in document 'db.txt' at position 241
+Found word 'have' in document 'db.txt' at 104th position in index
+Updating index, adding 'seen'(hashkey-422053) in document 'db.txt' at position 129
+Found word 'him' in document 'db.txt' at 47th position in index
+Updating index, adding 'run'(hashkey-14123) in document 'db.txt' at position 50
+Found word 'when' in document 'db.txt' at 131th position in index
+Found word 'it' in document 'db.txt' at 25th position in index
+Found word 'was' in document 'db.txt' at 58th position in index
+Updating index, adding 'enchilada'(hashkey-181092041) in document 'db.txt' at position 258
+Updating index, adding 'day'(hashkey-24060) in document 'db.txt' at position 73
+Found word 'in' in document 'db.txt' at 14th position in index
+Found word 'the' in document 'db.txt' at 37th position in index
+Updating index, adding 'cafeteria'(hashkey-641391584) in document 'db.txt' at position 331
+Found word 'anyway' in document 'db.txt' at 342th position in index
+Found word 'nanci' in document 'db.txt' at 196th position in index
+Found word 'bobofit' in document 'db.txt' at 217th position in index
+Found word 'was' in document 'db.txt' at 58th position in index
+Updating index, adding 'throw'(hashkey-21705414) in document 'db.txt' at position 232
+Updating index, adding 'wad'(hashkey-3898) in document 'db.txt' at position 31
+Found word 'of' in document 'db.txt' at 11th position in index
+Found word 'sandwich' in document 'db.txt' at 239th position in index
+Found word 'that' in document 'db.txt' at 152th position in index
+Updating index, adding 'stuck'(hashkey-10268924) in document 'db.txt' at position 207
+Found word 'in' in document 'db.txt' at 14th position in index
+Found word 'his' in document 'db.txt' at 60th position in index
+Updating index, adding 'curli'(hashkey-8687133) in document 'db.txt' at position 201
+Updating index, adding 'brown'(hashkey-13629462) in document 'db.txt' at position 220
+Found word 'hair' in document 'db.txt' at 145th position in index
+Found word 'and' in document 'db.txt' at 36th position in index
+Updating index, adding 'she'(hashkey-5072) in document 'db.txt' at position 38
+Updating index, adding 'knew'(hashkey-690443) in document 'db.txt' at position 165
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'could' in document 'db.txt' at 178th position in index
+Found word 'not' in document 'db.txt' at 67th position in index
+Found word 'do' in document 'db.txt' at 16th position in index
+Updating index, adding 'anything'(hashkey-279019273) in document 'db.txt' at position 276
+Found word 'back' in document 'db.txt' at 116th position in index
+Found word 'to' in document 'db.txt' at 18th position in index
+Updating index, adding 'her'(hashkey-17461) in document 'db.txt' at position 58
+Found word 'because' in document 'db.txt' at 172th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'was' in document 'db.txt' at 61th position in index
+Updating index, adding 'already'(hashkey-303198578) in document 'db.txt' at position 282
+Found word 'on' in document 'db.txt' at 15th position in index
+Updating index, adding 'probate'(hashkey-11099472) in document 'db.txt' at position 217
+Found word 'the' in document 'db.txt' at 39th position in index
+Updating index, adding 'headmast'(hashkey-155602268) in document 'db.txt' at position 260
+Found word 'had' in document 'db.txt' at 30th position in index
+Updating index, adding 'threaten'(hashkey-187785511) in document 'db.txt' at position 270
+Found word 'me' in document 'db.txt' at 7th position in index
+Found word 'with' in document 'db.txt' at 112th position in index
+Updating index, adding 'death-by-inschool-suspension'(hashkey-860054456) in document 'db.txt' at position 370
+Found word 'if' in document 'db.txt' at 10th position in index
+Found word 'anything' in document 'db.txt' at 280th position in index
+Found word 'bad' in document 'db.txt' at 28th position in index
+Updating index, adding 'embarrass'(hashkey-88712825) in document 'db.txt' at position 250
+Found word 'or' in document 'db.txt' at 21th position in index
+Updating index, adding 'even'(hashkey-422566) in document 'db.txt' at position 136
+Updating index, adding 'mildli'(hashkey-268875599) in document 'db.txt' at position 282
+Updating index, adding 'entertain'(hashkey-564820165) in document 'db.txt' at position 336
+Found word 'happen' in document 'db.txt' at 313th position in index
+Found word 'on' in document 'db.txt' at 15th position in index
+Found word 'this' in document 'db.txt' at 152th position in index
+Found word 'trip' in document 'db.txt' at 144th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'am' in document 'db.txt' at 12th position in index
+Found word 'going' in document 'db.txt' at 194th position in index
+Found word 'to' in document 'db.txt' at 18th position in index
+Found word 'kill' in document 'db.txt' at 125th position in index
+Found word 'her' in document 'db.txt' at 58th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'mumble'(hashkey-154300746) in document 'db.txt' at position 262
+Found word 'grover' in document 'db.txt' at 328th position in index
+Updating index, adding 'tried'(hashkey-3852266) in document 'db.txt' at position 177
+Found word 'to' in document 'db.txt' at 18th position in index
+Updating index, adding 'calm'(hashkey-398849) in document 'db.txt' at position 132
+Found word 'me' in document 'db.txt' at 7th position in index
+Updating index, adding 'down'(hashkey-439646) in document 'db.txt' at position 142
+Found word 'it' in document 'db.txt' at 25th position in index
+Found word 'is' in document 'db.txt' at 22th position in index
+Found word 'okay' in document 'db.txt' at 171th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'like' in document 'db.txt' at 95th position in index
+Found word 'peanut' in document 'db.txt' at 349th position in index
+Updating index, adding 'butter'(hashkey-520558016) in document 'db.txt' at position 331
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'dodg'(hashkey-212850) in document 'db.txt' at position 111
+Updating index, adding 'another'(hashkey-126210707) in document 'db.txt' at position 259
+Updating index, adding 'piec'(hashkey-94473) in document 'db.txt' at position 85
+Found word 'of' in document 'db.txt' at 11th position in index
+Found word 'nanci' in document 'db.txt' at 206th position in index
+Found word 'is' in document 'db.txt' at 22th position in index
+Updating index, adding 'lunch'(hashkey-7491658) in document 'db.txt' at position 202
+Found word 'that' in document 'db.txt' at 159th position in index
+Found word 'is' in document 'db.txt' at 22th position in index
+Found word 'it' in document 'db.txt' at 25th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'start' in document 'db.txt' at 243th position in index
+Found word 'to' in document 'db.txt' at 18th position in index
+Found word 'get' in document 'db.txt' at 64th position in index
+Found word 'up' in document 'db.txt' at 19th position in index
+Found word 'but' in document 'db.txt' at 70th position in index
+Found word 'grover' in document 'db.txt' at 336th position in index
+Updating index, adding 'pull'(hashkey-369691) in document 'db.txt' at position 129
+Found word 'me' in document 'db.txt' at 7th position in index
+Found word 'back' in document 'db.txt' at 119th position in index
+Found word 'to' in document 'db.txt' at 18th position in index
+Found word 'my' in document 'db.txt' at 26th position in index
+Updating index, adding 'seat'(hashkey-596955) in document 'db.txt' at position 160
+Found word 'you' in document 'db.txt' at 72th position in index
+Found word 'are' in document 'db.txt' at 42th position in index
+Found word 'already' in document 'db.txt' at 298th position in index
+Found word 'on' in document 'db.txt' at 15th position in index
+Found word 'probate' in document 'db.txt' at 226th position in index
+Found word 'he' in document 'db.txt' at 6th position in index
+Updating index, adding 'remind'(hashkey-127726683) in document 'db.txt' at position 266
+Found word 'me' in document 'db.txt' at 7th position in index
+Found word 'you' in document 'db.txt' at 72th position in index
+Found word 'know' in document 'db.txt' at 174th position in index
+Updating index, adding 'who'(hashkey-14686) in document 'db.txt' at position 54
+Found word 'will' in document 'db.txt' at 129th position in index
+Found word 'get' in document 'db.txt' at 65th position in index
+Updating index, adding 'blame'(hashkey-5006223) in document 'db.txt' at position 196
+Found word 'if' in document 'db.txt' at 10th position in index
+Found word 'anything' in document 'db.txt' at 296th position in index
+Updating index, adding 'happens'(hashkey-268487576) in document 'db.txt' at position 295
+Updating index, adding 'looking'(hashkey-621988109) in document 'db.txt' at position 361
+Found word 'back' in document 'db.txt' at 120th position in index
+Found word 'on' in document 'db.txt' at 15th position in index
+Found word 'it' in document 'db.txt' at 25th position in index
+Found word 'i' in document 'db.txt' at 2th position in index
+Updating index, adding 'wish'(hashkey-256889) in document 'db.txt' at position 115
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'had' in document 'db.txt' at 30th position in index
+Found word 'would' in document 'db.txt' at 190th position in index
+Updating index, adding 'deck'(hashkey-330743) in document 'db.txt' at position 122
+Found word 'nanci' in document 'db.txt' at 213th position in index
+Found word 'bobofit' in document 'db.txt' at 238th position in index
+Found word 'right' in document 'db.txt' at 247th position in index
+Updating index, adding 'then'(hashkey-422147) in document 'db.txt' at position 142
+Found word 'and' in document 'db.txt' at 36th position in index
+Updating index, adding 'there'(hashkey-5158916) in document 'db.txt' at position 200
+Found word 'in' in document 'db.txt' at 14th position in index
+Found word 'school' in document 'db.txt' at 318th position in index
+Updating index, adding 'in-school'(hashkey-900854968) in document 'db.txt' at position 405
+Updating index, adding 'suspens'(hashkey-268491090) in document 'db.txt' at position 300
+Found word 'would' in document 'db.txt' at 192th position in index
+Found word 'have' in document 'db.txt' at 111th position in index
+Found word 'been' in document 'db.txt' at 140th position in index
+Updating index, adding 'nothing'(hashkey-621903543) in document 'db.txt' at position 366
+Updating index, adding 'compar'(hashkey-516737856) in document 'db.txt' at position 343
+Found word 'to' in document 'db.txt' at 18th position in index
+Found word 'the' in document 'db.txt' at 39th position in index
+Updating index, adding 'mess'(hashkey-584456) in document 'db.txt' at position 163
+Found word 'i' in document 'db.txt' at 2th position in index
+Found word 'was' in document 'db.txt' at 62th position in index
+Found word 'about' in document 'db.txt' at 255th position in index
+Found word 'to' in document 'db.txt' at 18th position in index
+Found word 'get' in document 'db.txt' at 65th position in index
+Updating index, adding 'myself'(hashkey-183025160) in document 'db.txt' at position 290
+Found word 'into' in document 'db.txt' at 151th position in index

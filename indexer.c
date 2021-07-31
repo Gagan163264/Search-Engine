@@ -276,6 +276,7 @@ int main(void)
             if(word[0]&&numpr)//final word
             {
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
+              //{//enable for stopword isolation
                 porter_stemmer(word);
               index_pos=bin_search_struct(size_index,index, word,-1);
               if(index_pos>=0)
@@ -326,6 +327,7 @@ int main(void)
                   printf("Updating index, adding '%s'(hashkey-%lld) in document '%s' at position %d\n\n",word,index[idx_size].hash_key, de->d_name, -index_pos-1);
                   fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld) in document '%s' at position %d\n",word,index[idx_size].hash_key, de->d_name, -index_pos-1);
               }
+            //}//enable for stop word isolation
             }
             free(word);
             contrindex--;

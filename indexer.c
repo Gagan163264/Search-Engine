@@ -19,8 +19,10 @@ int main(void)
   char index_path[]="SE-db/index.txt";
   char stop_db_path[]="SE-db/stop-words.txt";
   char output_dump[]="SE-db/out.txt";
+  char dcindx[]="SE-db/document-index.txt";
 
   FILE* outfil = fopen(output_dump, "w");
+  FILE* doc_index = fopen(dcindx, "w");
   long stop_size;
   char** stop_db_arr = import_stopdb_tomem(&stop_size, stop_db_path);
   DIR *dr = opendir("source");
@@ -62,6 +64,7 @@ int main(void)
   int sub_index_pos;
   int idx_size;
   int numpr;
+  int wrdcount;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -83,9 +86,11 @@ int main(void)
         fpath[path_append++]=de->d_name[check_txt++];
     fpath[path_append]=0;
     char* fle = importdb_tomem(&size_d, fpath);
+
     rword = strtok(fle, sep);
 
     char ch;
+    wrdcount=0;
     while(rword != NULL )
     {
       endword =0;
@@ -275,6 +280,7 @@ int main(void)
 
             if(word[0]&&numpr)//final word
             {
+              wrdcount++;
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
               //{//enable for stopword isolation
                 porter_stemmer(word);
@@ -338,12 +344,15 @@ int main(void)
       }
       rword = strtok(NULL, sep);
     }
+    fprintf(doc_index,"%s|%d\n",de->d_name,wrdcount);
     free(fle);
   }
   export_index(index, size_index, index_path);
   free(index);
   closedir(dr);
+  fprintf(outfil, "Search completed, index of %ld words created\n", size_index);
   fclose(outfil);
+  fclose(doc_index);
   printf("Search completed, index of %ld words created\n", size_index);
   return 0;
 }

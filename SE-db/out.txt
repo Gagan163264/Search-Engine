@@ -1621,7 +1621,7 @@ Found word 'is' in document 'adb.txt' at 22th position in index
 Updating index, adding 'found'(hashkey-4131810) in document 'adb.txt' at position 137
 Found word 'to' in document 'adb.txt' at 19th position in index
 Found word 'be' in document 'adb.txt' at 10th position in index
-Updating index, adding 'o(|t'(hashkey-635) in document 'adb.txt' at position 25
+Updating index, adding 'o(t'(hashkey-635) in document 'adb.txt' at position 25
 Found word 'where' in document 'adb.txt' at 145th position in index
 Updating index, adding 't'(hashkey-20) in document 'adb.txt' at position 8
 Found word 'is' in document 'adb.txt' at 23th position in index
@@ -2960,3 +2960,4 @@ Found word 'to' in document 'db.txt' at 28th position in index
 Found word 'get' in document 'db.txt' at 91th position in index
 Updating index, adding 'myself'(hashkey-183025160) in document 'db.txt' at position 520
 Found word 'into' in document 'db.txt' at 226th position in index
+Search completed, index of 803 words created

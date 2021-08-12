@@ -148,7 +148,7 @@ int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, in
   return -mp-1;
 }
 
-char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[])
+char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[],int* kwsize)
 {
   int wcount = 0;
   char *word;

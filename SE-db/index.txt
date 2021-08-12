@@ -36,12 +36,12 @@ us|610|db.txt|2
 at|621|adb.txt|1|db.txt|6
 et|625|adb.txt|2
 it|629|adb.txt|15|db.txt|11
-o(|t|635|adb.txt|1
+o(t|635|adb.txt|1
 2/v|685|adb.txt|1
 by|777|adb.txt|9
 my|788|db.txt|7
 job|2397|adb.txt|1
-day|2406|db.txt|1
+day|2406|testdb.txt|1
 bad|3877|database.csv|5|db.txt|3
 dad|3879|db.txt|1
 had|3883|adb.txt|1|db.txt|9

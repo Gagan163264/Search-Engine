@@ -350,7 +350,7 @@ int main(void)
                   {
                     index[index_pos].doc_data[sub_index_pos].freq++;
                     printf("Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
-                    fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
+                    fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
                   }
                 }
                 else

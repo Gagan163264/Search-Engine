@@ -1,5 +1,6 @@
 struct freq_per_doc
 {
+  char* orword;
   char* docname;
   int freq;
 };

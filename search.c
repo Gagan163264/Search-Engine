@@ -133,7 +133,7 @@ int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, in
       }
     }
     else
-      cmp = strcmp(index_arr[sel].doc_data[mp].docname, cmp_str);
+      cmp = strcmp(index_arr[sel].doc_data[mp].orword, cmp_str);
     //if(sel>=0)
       //printf("\ninarr(%s||%s||%d||%d||%ld)\n", cmp_str,index_arr[sel].doc_data[mp].docname,cmp,sel,mp);
     if(cmp == 0)

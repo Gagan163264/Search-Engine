@@ -94,8 +94,8 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
   *database_size=elementcount;
   struct index_word* index = (struct index_word*)malloc((elementcount+1) * sizeof(struct index_word));
   index[elementcount].word=NULL;
-  int indx = 0;
   indexc = 0;
+  int indx = 0;
   int sepcount = 0;
   int indexarr = 0;
   int elementcounter = 0;
@@ -118,8 +118,8 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       for(int i = indx;(database[i]!='\n' && database[i]!= 0);i++)//declare structure
         if(database[i]=='|')
           sepcount++;
-      index[indexc].doc_data = (struct freq_per_doc*)calloc((sepcount-1)/2,sizeof(struct freq_per_doc));
-      index[indexc].doc_data[(sepcount-1)/2-1].docname=NULL;
+      index[indexc].doc_data = (struct freq_per_doc*)calloc((sepcount+2)/3,sizeof(struct freq_per_doc));
+      index[indexc].doc_data[(sepcount-1)/3].orword=NULL;
       sepcount = 0;
       for(int i = indx;(database[i]!='\n' && database[i]!= 0);i++)//initialize structure
         if(database[i]=='|')
@@ -130,14 +130,20 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
             index[indexc].hash_key = 0;
             index[indexc].word = (char*)calloc(i-indx+1, sizeof(char));
           }
-          if(sepcount>2&&(sepcount%2)!= 0)
+          if(sepcount>2&&(sepcount%3)== 0)
           {
-            index[indexc].doc_data[(sepcount-3)/2].freq=0;
-            index[indexc].doc_data[(sepcount-3)/2].docname=(char*)calloc((i-lastsep),sizeof(char));
+            index[indexc].doc_data[element2counter].freq=0;
+            index[indexc].doc_data[element2counter].orword=(char*)calloc((i-lastsep),sizeof(char));
+          }
+          if(sepcount>2&&((sepcount-1)%3)== 0)
+          {
+            index[indexc].doc_data[element2counter].docname=(char*)calloc((i-lastsep),sizeof(char));
+            element2counter++;
           }
           lastsep = i;
         }
-      if(sepcount%2 == 0)
+      element2counter=0;
+      if((sepcount-1)%3 != 0)
       {
         printf("Database error at line %d", indexc+2);
         return NULL;
@@ -149,13 +155,15 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
     {
       indexarr = 0;
       elementcounter++;
-      if(elementcounter%2 == 0)
+      if((elementcounter+1)%3 == 0)
       {
         element2counter=0;
           substructctr++;
       }
-      else
+      else if(elementcounter%3 == 0)
         element2counter=1;
+      else
+        element2counter = 2;
       continue;
     }
     if(elementcounter == 0)
@@ -165,8 +173,10 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
     if(elementcounter >= 2)
     {
       if(element2counter == 0)
-        index[indexc].doc_data[substructctr].docname[indexarr++]=c;
+        index[indexc].doc_data[substructctr].orword[indexarr++]=c;
       if(element2counter == 1)
+        index[indexc].doc_data[substructctr].docname[indexarr++]=c;
+      if(element2counter == 2)
       index[indexc].doc_data[substructctr].freq=10*(index[indexc].doc_data[substructctr].freq)+c-'0';
     }
   }
@@ -220,8 +230,10 @@ int reversenum(int num)
     }
     fputc('|',dbfile);
     datai = 0;
-    while(index[ind].doc_data[datai].docname!=NULL)
+    while(index[ind].doc_data[datai].orword!=NULL)
     {
+      fputs(index[ind].doc_data[datai].orword, dbfile);
+      fputc('|',dbfile);
       fputs(index[ind].doc_data[datai].docname, dbfile);
       fputc('|',dbfile);
       tmpn = index[ind].doc_data[datai].freq;
@@ -236,7 +248,7 @@ int reversenum(int num)
         fputc('0',dbfile);
         tmpn = tmpn/10;
       }
-      if(index[ind].doc_data[datai+1].docname!=NULL)
+      if(index[ind].doc_data[datai+1].orword!=NULL)
         fputc('|',dbfile);
       datai++;
     }

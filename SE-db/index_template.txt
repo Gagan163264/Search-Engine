@@ -1,1 +1,1 @@
-day|2406|testdb.txt|1
+zzratio|588735798|zzratio|ci4k.txt|1

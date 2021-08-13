@@ -65,6 +65,9 @@ int main(void)
   int idx_size;
   int numpr;
   int wrdcount;
+  int strcp;
+  int flipflag = 0;
+  int flipnumber,flipnum;
 
   while ((de = readdir(dr)) != NULL)
   {
@@ -98,7 +101,7 @@ int main(void)
       nlcount = 0;
       while((ch = rword[endword]))
       {
-        if(ch=='+'||ch=='<'||ch=='>'||ch=='^')//https://docs.oracle.com/cd/E29584_01/webhelp/mdex_basicDev/src/cbdv_searchchar_indexing_non-alphanumeric_characters.html
+        if(ch=='+'||ch=='<'||ch=='>'||ch=='^'||ch=='/'||ch=='(')//https://docs.oracle.com/cd/E29584_01/webhelp/mdex_basicDev/src/cbdv_searchchar_indexing_non-alphanumeric_characters.html
           rword[endword]='\n';
         if(rword[endword]=='.'&&rword[endword+1]=='.')//detect ellipses
         {
@@ -268,8 +271,8 @@ int main(void)
              }
             else
             {
-              word = (char*)malloc((endvar-startvar+2)*sizeof(char));
               numpr=0;
+              word = (char*)malloc((endvar-startvar+2)*sizeof(char));
               for(int i = 0;i<=endvar;i++)
               {
                 word[i]=tolower(raw_word[startvar+i]);
@@ -277,9 +280,11 @@ int main(void)
               }
               word[endvar-startvar+1]=0;
             }
-
+            oword = (char*)malloc((endvar-startvar+2)*sizeof(char));
+            strcpy(oword, word);
             if(word[0]&&numpr)//final word
             {
+              puts(oword);
               wrdcount++;
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
               //{//enable for stopword isolation
@@ -290,13 +295,68 @@ int main(void)
                 substructindex=0;
                 while(index[index_pos].doc_data[substructindex].docname!=NULL)
                   substructindex++;
-                sub_index_pos=bin_search_struct(substructindex,index,de->d_name,index_pos);
+                sub_index_pos=bin_search_struct(substructindex,index,oword,index_pos);
                 if(sub_index_pos>=0)
-                  index[index_pos].doc_data[sub_index_pos].freq++;
+                {
+                  flipflag = 0;
+                  flipnum = 0;
+                  flipnumber = 0;
+                  strcp = strcmp(de->d_name,index[index_pos].doc_data[sub_index_pos].docname);
+                  if(strcp>0)
+                    flipnum=1;
+                  while(strcp)
+                  {
+                    printf("%s||%s||%d*%d\n",de->d_name,index[index_pos].doc_data[sub_index_pos].docname,strcp, sub_index_pos);
+                    if(strcp>0)
+                    {
+                      sub_index_pos++;
+                      flipnumber = 1;
+                    }
+                    else
+                    {
+                      sub_index_pos--;
+                      flipnumber=0;
+                    }
+                    if(sub_index_pos<0||(sub_index_pos>0&&index[index_pos].doc_data[sub_index_pos].orword==0)||strcmp(index[index_pos].doc_data[sub_index_pos].orword, oword))
+                    {
+                      if(!flipnumber)
+                        sub_index_pos++;
+                      flipnum = !flipnumber;
+                    }
+                    //printf("%s||%s||%d*%d\n",de->d_name,index[index_pos].doc_data[sub_index_pos].docname,strcp, sub_index_pos);
+                    if(flipnum!=flipnumber)
+                    {
+                      flipflag = 1;
+                      index[index_pos].doc_data=(struct freq_per_doc*)realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
+                      while(substructindex>=sub_index_pos)
+                      {
+                        index[index_pos].doc_data[substructindex+1]=index[index_pos].doc_data[substructindex];
+                        substructindex--;
+                      }
+                      substructindex++;
+                      index[index_pos].doc_data[substructindex].orword=(char*)malloc((endvar-startvar+2)*sizeof(char));
+                      index[index_pos].doc_data[substructindex].docname=(char*)malloc(check_txt*sizeof(char));
+                      strcpy(index[index_pos].doc_data[substructindex].orword, oword);
+                      strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
+                      index[index_pos].doc_data[substructindex].freq=1;
+                      printf("Updating document list to add '%s' for existing word '%s'(unstemmed '%s')%d\n\n", de->d_name, word,oword,substructindex);
+                      fprintf(outfil,"Updating document list to add '%s' for existing word '%s'(unstemmed '%s')%d\n", de->d_name, word,oword,substructindex);
+                      break;
+                    }
+                    strcp = strcmp(de->d_name,index[index_pos].doc_data[sub_index_pos].docname);
+                    flipnum = flipnumber;
+                  }
+                  if(!flipflag)
+                  {
+                    index[index_pos].doc_data[sub_index_pos].freq++;
+                    printf("Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
+                    fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
+                  }
+                }
                 else
                 {
-                  printf("Updating document list to add '%s' for word '%s'\n\n", de->d_name, word);
-                  fprintf(outfil,"Updating document list to add '%s' for word '%s'\n", de->d_name, word);
+                  printf("Updating document list to add '%s' for word '%s'(unstemmed '%s')\n\n", de->d_name, word,oword);
+                  fprintf(outfil,"Updating document list to add '%s' for word '%s'(unstemmed '%s')\n", de->d_name, word,oword);
                   index[index_pos].doc_data=(struct freq_per_doc*)realloc(index[index_pos].doc_data,(substructindex+2)*sizeof(struct freq_per_doc));
                   while(substructindex>=((-sub_index_pos)-1))
                   {
@@ -304,12 +364,12 @@ int main(void)
                     substructindex--;
                   }
                   substructindex++;
+                  index[index_pos].doc_data[substructindex].orword=(char*)malloc((endvar-startvar+2)*sizeof(char));
                   index[index_pos].doc_data[substructindex].docname=(char*)malloc(check_txt*sizeof(char));
+                  strcpy(index[index_pos].doc_data[substructindex].orword, oword);
                   strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
                   index[index_pos].doc_data[substructindex].freq=1;
                 }
-                printf("Found word '%s' in document '%s' at %dth position in index\n\n", word, de->d_name, index_pos);
-                fprintf(outfil,"Found word '%s' in document '%s' at %dth position in index\n", word, de->d_name, index_pos);
               }
               else
               {
@@ -326,16 +386,19 @@ int main(void)
                   strcpy(index[idx_size].word, word);
                   index[idx_size].hash_key=get_hash_key(word);
                   index[idx_size].doc_data=(struct freq_per_doc*)calloc(2,sizeof(struct freq_per_doc));
+                  index[idx_size].doc_data[0].orword=(char*)malloc((endvar-startvar+2)*sizeof(char));
+                  strcpy(index[idx_size].doc_data[0].orword, oword);
                   index[idx_size].doc_data[0].docname=(char*)malloc(check_txt*sizeof(char));
                   strcpy(index[idx_size].doc_data[0].docname, de->d_name);
                   index[idx_size].doc_data[1].docname=NULL;
                   index[idx_size].doc_data[0].freq=1;
-                  printf("Updating index, adding '%s'(hashkey-%lld) in document '%s' at position %d\n\n",word,index[idx_size].hash_key, de->d_name, -index_pos-1);
-                  fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld) in document '%s' at position %d\n",word,index[idx_size].hash_key, de->d_name, -index_pos-1);
+                  printf("Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
+                  fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
               }
             //}//enable for stop word isolation
             }
             free(word);
+            free(oword);
             contrindex--;
           }
           hypcount--;
@@ -347,12 +410,12 @@ int main(void)
     fprintf(doc_index,"%s|%d\n",de->d_name,wrdcount);
     free(fle);
   }
+  printf("Search completed, index of %ld words created\n", size_index);
+  fprintf(outfil, "Search completed, index of %ld words created\n", size_index);
   export_index(index, size_index, index_path);
   free(index);
   closedir(dr);
-  fprintf(outfil, "Search completed, index of %ld words created\n", size_index);
   fclose(outfil);
   fclose(doc_index);
-  printf("Search completed, index of %ld words created\n", size_index);
   return 0;
 }

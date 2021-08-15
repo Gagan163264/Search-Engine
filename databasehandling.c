@@ -258,3 +258,8 @@ int reversenum(int num)
   fclose(dbfile);
   return 0;
  }
+
+ struct docdet* import_dbindex(char* path)
+ {
+
+ }

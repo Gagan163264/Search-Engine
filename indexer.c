@@ -23,15 +23,17 @@ int main(void)
 
   FILE* outfil = fopen(output_dump, "w");
   FILE* doc_index = fopen(dcindx, "w");
+  struct docdet* docindx = (struct docdet*)malloc(sizeof(struct docdet));
+  docindx[0].name=NULL;
+  int docdsize =0;
   long stop_size;
   char** stop_db_arr = import_stopdb_tomem(&stop_size, stop_db_path);
   DIR *dr = opendir("source");
   if (dr == NULL)  // opendir returns NULL if couldn't open directory
   {
       printf("Could not open current directory\n" );
-      return 0;
+      return 2;
   }
-
 
   long size_index;             //import index structure
   struct index_word* index = import_index_tomem(&size_index, index_template_path);
@@ -284,7 +286,6 @@ int main(void)
             strcpy(oword, word);
             if(word[0]&&numpr)//final word
             {
-              puts(oword);
               wrdcount++;
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
               //{//enable for stopword isolation
@@ -306,7 +307,6 @@ int main(void)
                     flipnum=1;
                   while(strcp)
                   {
-                    printf("%s||%s||%d*%d\n",de->d_name,index[index_pos].doc_data[sub_index_pos].docname,strcp, sub_index_pos);
                     if(strcp>0)
                     {
                       sub_index_pos++;
@@ -339,8 +339,8 @@ int main(void)
                       strcpy(index[index_pos].doc_data[substructindex].orword, oword);
                       strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
                       index[index_pos].doc_data[substructindex].freq=1;
-                      printf("Updating document list to add '%s' for existing word '%s'(unstemmed '%s')%d\n\n", de->d_name, word,oword,substructindex);
-                      fprintf(outfil,"Updating document list to add '%s' for existing word '%s'(unstemmed '%s')%d\n", de->d_name, word,oword,substructindex);
+                      printf("Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n\n", de->d_name, word,oword);
+                      fprintf(outfil,"Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n", de->d_name, word,oword);
                       break;
                     }
                     strcp = strcmp(de->d_name,index[index_pos].doc_data[sub_index_pos].docname);
@@ -350,7 +350,7 @@ int main(void)
                   {
                     index[index_pos].doc_data[sub_index_pos].freq++;
                     printf("Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
-                    fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
+                    fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
                   }
                 }
                 else
@@ -396,7 +396,7 @@ int main(void)
                   fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
               }
             //}//enable for stop word isolation
-            }
+          }
             free(word);
             free(oword);
             contrindex--;
@@ -407,12 +407,34 @@ int main(void)
       }
       rword = strtok(NULL, sep);
     }
-    fprintf(doc_index,"%s|%d\n",de->d_name,wrdcount);
+    docdsize++;
+    sub_index_pos = bin_search_struct_2(docdsize,docindx,de->d_name);//sort for document document
+    if(sub_index_pos>=0)
+    {
+      printf("Double file error");
+      return 1;
+    }
+    docindx = (struct docdet*)realloc(docindx,(docdsize+1)*sizeof(struct docdet));
+    substructindex = docdsize-1;
+    while(substructindex>=((-sub_index_pos)-1))
+    {
+      docindx[substructindex+1]=docindx[substructindex];
+      substructindex--;
+    }
+    substructindex++;
+    docindx[substructindex].name=(char*)malloc(check_txt*sizeof(char));
+    strcpy(docindx[substructindex].name,de->d_name);
+    docindx[substructindex].length = wrdcount;
+    fprintf(outfil,"Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
+    printf("Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
+
     free(fle);
   }
   printf("Search completed, index of %ld words created\n", size_index);
   fprintf(outfil, "Search completed, index of %ld words created\n", size_index);
   export_index(index, size_index, index_path);
+  for(int i = 0;docindx[i].name!=NULL;i++)
+    fprintf(doc_index, "%s|%d\n",docindx[i].name,docindx[i].length);
   free(index);
   closedir(dr);
   fclose(outfil);

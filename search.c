@@ -148,6 +148,32 @@ int bin_search_struct(long size, struct index_word* index_arr, char* cmp_str, in
   return -mp-1;
 }
 
+int bin_search_struct_2(long size, struct docdet* docdetails, char cmp_str[])
+{
+  long mp = 0;
+  int left = 0;
+  int right = size-1;
+  int cmp;
+  if(!right)
+    return -1;
+  while(left<=right)
+  {
+    mp = (left+right)/2;
+    if(docdetails[mp].name==NULL)
+      return -mp-1;
+    cmp = strcmp(docdetails[mp].name,cmp_str);
+    if(cmp == 0)
+      return mp;
+    if(cmp>0)
+      right = mp-1;
+    else
+      left = mp+1;
+  }
+  if(cmp<0)
+    return -mp-2;
+  return -mp-1;
+}
+
 char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[],int* kwsize)
 {
   int wcount = 0;
@@ -196,6 +222,7 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
     uin_wtable = (char **)realloc(uin_wtable,  (wcount+1)* sizeof(char *));
   }
   uin_wtable[wcount]=NULL;
+  *kwsize = wcount;
   return uin_wtable;
 }
 

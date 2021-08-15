@@ -12,6 +12,12 @@ struct index_word
   struct freq_per_doc* doc_data;
 };
 
+struct docdet
+{
+  char* name;
+  int length;
+};
+
 char* importdb_tomem(long *, char *);
 char** import_stopdb_tomem(long *, char *);
 struct index_word* import_index_tomem(long *, char *);

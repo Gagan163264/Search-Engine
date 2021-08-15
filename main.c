@@ -13,6 +13,7 @@ int main()
   char c;
   long stop_db_size;//number of words in stop database
   char stop_db_path[]="SE-db/stop-words.txt";
+  char dcindx[]="SE-db/document-index.txt";
   char index_path[]="SE-db/index.txt";
   char** stop_db_arr=import_stopdb_tomem(&stop_db_size,stop_db_path);
   long size_index;             //import index structure
@@ -31,6 +32,6 @@ int main()
   char** uin_wtable = extract_keywords(stop_db_size, stop_db_arr, raw_uin_str_cp,&kwsize);
   int i = 0;
   while(uin_wtable[i] != NULL)
-    porter_stemmer(uin_wtable[i]);
+    i++;
 
 }

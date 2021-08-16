@@ -299,7 +299,7 @@ Found word 'mumbai'(unstemmed 'mumbai') in document 'database.csv' at 27th posit
 Found word 'fees paid'(unstemmed 'fees paid') in document 'database.csv' at 17th position in index for the 40th time
 Found word 'good'(unstemmed 'good') in document 'database.csv' at 5th position in index for the 45th time
 Found word 'kcet'(unstemmed 'kcet') in document 'database.csv' at 7th position in index for the 15th time
-(-1|1|0) Document database.csv of word-length 301 completed
+Document database.csv of word-length 301 completed
 Updating index, adding 'deep'(hashkey-481620)(unstemmed 'deep') in document 'adb.txt' at position 7
 Updating index, adding 'learn'(hashkey-13466660)(unstemmed 'learning') in document 'adb.txt' at position 14
 Updating index, adding 'for'(hashkey-17769)(unstemmed 'for') in document 'adb.txt' at position 5
@@ -2103,7 +2103,7 @@ Updating document list to add 'adb.txt' for word 'field'(unstemmed 'fields')
 Found word 'in'(unstemmed 'in') in document 'adb.txt' at 17th position in index for the 53th time
 Found word 'the'(unstemmed 'the') in document 'adb.txt' at 33th position in index for the 177th time
 Found word 'futur'(unstemmed 'future') in document 'adb.txt' at 236th position in index for the 2nd time
-(-1|2|0) Document adb.txt of word-length 1803 completed
+Document adb.txt of word-length 1803 completed
 Updating index, adding 'look'(hashkey-342593)(unstemmed 'look') in document 'db.txt' at position 109
 Updating index, adding 'i'(hashkey-9)(unstemmed 'i') in document 'db.txt' at position 4
 Updating index, adding 'did'(hashkey-4127)(unstemmed 'did') in document 'db.txt' at position 32
@@ -2886,5 +2886,5 @@ Updating index, adding 'myself'(hashkey-183025160)(unstemmed 'myself') in docume
 Found word 'into'(unstemmed 'into') in document 'db.txt' at 223th position in index for the 2nd time
 Updating document list to add 'db.txt' for existing word 'ba'(unstemmed 'based')
 Updating document list to add 'db.txt' for word 'ba'(unstemmed 'basing')
-(-3|3|2) Document db.txt of word-length 782 completed
+Document db.txt of word-length 782 completed
 Search completed, index of 797 words created

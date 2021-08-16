@@ -24,19 +24,12 @@ char* importdb_tomem(long *database_size, char *databasedb)
 
 char** import_stopdb_tomem(long *database_size, char *databasedb)
 {
-  FILE *dbfile = fopen(databasedb, "r");
-  fseek(dbfile, 0L, SEEK_END);
-  long fsize = ftell(dbfile);
-  fseek(dbfile, 0, SEEK_SET);
-  char *database = malloc(fsize + 1);
-  fread(database, 1, fsize, dbfile);
-  fclose(dbfile);
-  database[fsize] = 0;
+  char* database = importdb_tomem(database_size, databasedb);
   int line_count = 0;
   int line_index = 0;
   int max_size = 0;
   int letter_counter = 0;
-  int counter = 0;
+  long counter = 0;
   char c;
   while((c = database[counter++]) != 0)
   {
@@ -77,14 +70,7 @@ char** import_stopdb_tomem(long *database_size, char *databasedb)
 
 struct index_word* import_index_tomem(long *database_size, char *databasedb)
 {
-  FILE *dbfile = fopen(databasedb, "r");
-  fseek(dbfile, 0L, SEEK_END);
-  long fsize = ftell(dbfile);
-  fseek(dbfile, 0, SEEK_SET);
-  char *database = malloc(fsize + 1);
-  fread(database, 1, fsize, dbfile);
-  fclose(dbfile);
-  database[fsize] = 0;
+  char* database = importdb_tomem(database_size, databasedb);
   int indexc = 0;
   char c;
   int elementcount = 0;
@@ -95,7 +81,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
   struct index_word* index = (struct index_word*)malloc((elementcount+1) * sizeof(struct index_word));
   index[elementcount].word=NULL;
   indexc = 0;
-  int indx = 0;
+  long indx = 0;
   int sepcount = 0;
   int indexarr = 0;
   int elementcounter = 0;
@@ -180,6 +166,7 @@ struct index_word* import_index_tomem(long *database_size, char *databasedb)
       index[indexc].doc_data[substructctr].freq=10*(index[indexc].doc_data[substructctr].freq)+c-'0';
     }
   }
+  free(database);
   return index;
 }
 
@@ -259,7 +246,50 @@ int reversenum(int num)
   return 0;
  }
 
- struct docdet* import_dbindex(char* path)
+ struct docdet* import_dbindex(long* size, char* path)
  {
-
+   long dbsize;
+   long num;
+   char* database = importdb_tomem(&dbsize, path);
+   long i;
+   while(i<dbsize)
+    if(database[i++]=='\n')
+      num++;
+  *size = num
+  struct docdet* dbindex = (struct docdet*)malloc((num+1)*sizeof(struct docdet));
+  dbindex[num].name = NULL;
+  i = 0;
+  char ch;
+  int wsize;
+  int line_count = -1;
+  int term = 0;
+  int ctr;
+  int lined = 0;
+  while((ch = database[i++])!=0)
+  {
+    if(ch == '\n'||i==1)
+    {
+      line_count++;
+      for(ctr = i;database[ctr]!='|';ctr++);
+      wsize = ctr-i+1;
+      dbindex[line_count].name = (char*)malloc(wsize*sizeof(char));
+      dbindex[line_count].length=0;
+      term = 0;
+    }
+    else if(ch == '|')
+    {
+      term = 1;
+      dbindex[line_count].name[lined]=0;
+      lined = 0;
+    }
+    else
+    {
+      if(!term)
+        dbindex[line_count].name[lined++]=ch;
+      else
+        dbindex[line_count].length = 10*dbindex[line_count].length+ch-'0';
+    }
+  }
+  free(database);
+  return dbindex;
  }

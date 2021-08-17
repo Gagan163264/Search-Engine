@@ -15,7 +15,6 @@ int main()
   clock_t timer;
   long stop_db_size;//number of words in stop database
   char stop_db_path[]="SE-db/stop-words.txt";
-  char dcindx[]="SE-db/document-index.txt";
   char index_path[]="SE-db/index.txt";
   char dbindex_path[] = "SE-db/document-index.txt";
   char** stop_db_arr=import_stopdb_tomem(&stop_db_size,stop_db_path);

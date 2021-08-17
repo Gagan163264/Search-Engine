@@ -7,6 +7,7 @@ int strcmp_bin(int , char** , char*);
 long long get_hash_key(char*);
 float get_idf(int,int);
 float rank(float, int, int, float);
+int pop_max(float*, float*, int);
 
 
 char* porter_stemmer(char*);

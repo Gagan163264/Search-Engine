@@ -139,12 +139,12 @@ int main(void)
 
         while(raw_word[endword])
           endword++;
-        while((raw_word[beginword])&&(!isalnum(raw_word[beginword]))&&strcmp(sep,"csv"))
+        while((raw_word[beginword])&&(!isalpha(raw_word[beginword])))
           beginword++;
         if(beginword==endword)
           break;
         endword--;
-        while(((endword)>=0)&&(!isalnum(raw_word[endword]))&&strcmp(sep,"csv"))
+        while(((endword)>=0)&&(!isalpha(raw_word[endword])))
           endword--;
         hypcount = 0;
         hypindex = 0;

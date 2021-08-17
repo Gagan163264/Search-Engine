@@ -12,7 +12,7 @@ indexer.o:indexer.c databasehandling.c search.c
 	@gcc -c indexer.c databasehandling.c search.c
 
 crawl:indexer.o
-	@gcc -g indexer.o databasehandling.o search.o -o crawl.out
+	@gcc -g indexer.o databasehandling.o search.o -o crawl.out -lm
 	@chmod 755 crawl.out
 	@./crawl.out
 

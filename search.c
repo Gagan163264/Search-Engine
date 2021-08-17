@@ -193,10 +193,9 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
       {
         if(word[i]>64&&word[i]<91)
           uin_wtable[wcount][i]=tolower(word[i]);
-        else if(word[i]>96&&word[i]<123)
+        else if(word[i]==95||(word[i]>96&&word[i]<123))
           uin_wtable[wcount][i]=word[i];
-        else
-        uin_wtable[wcount][i]=' ';
+
       }
       wcount++;
       if(wcount>word_count)
@@ -236,9 +235,24 @@ float get_idf(int total_docs,int docs_with)
 
 float rank(float idf, int term_freq, int doclen, float avg_doclen)
 {
-  float k = 2;
+  float k = 1.2;
   float b  = 0.75;
   return idf*(term_freq*(1+k))/(term_freq+k*(1-b+b*doclen/avg_doclen));
+}
+
+int pop_max(float* original, float* stemmed, int size)
+{
+  int prior = 2;
+  int max = 0;
+  for(int iter = 0;iter<size;iter++)
+    if((2*original[max]+stemmed[max])<(2*original[iter]+stemmed[iter]))
+      max = iter;
+  float maxval = (2*original[max]+stemmed[max]);
+  original[max]=0;
+  stemmed[max]=0;
+  if(maxval!=0)
+    return max;
+  return -1;
 }
 
 //-----------------------------------------porter stemmer-----------------------------------------------------------------------------------------

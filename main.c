@@ -26,9 +26,9 @@ int main()
   char raw_uin_str_cp[INPUT_LIMIT];
 
   printf("Search for: ");
-  timer = clock();
   fgets(raw_uin_str,INPUT_LIMIT,stdin);
   printf("Running search for: %s\n", raw_uin_str);
+  timer = clock();
   raw_uin_str[strcspn(raw_uin_str, "\n")] = 0;
   strcpy(raw_uin_str_cp, raw_uin_str);
   tolowerstr(raw_uin_str_cp);

@@ -230,7 +230,8 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
 
 float get_idf(int total_docs,int docs_with)
 {
-  return (total_docs-docs_with+0.5)/(docs_with+0.5)+1;
+  float idf = log((total_docs-docs_with+0.5)/(docs_with+0.5)+1);
+  return idf;
 }
 
 float rank(float idf, int term_freq, int doclen, float avg_doclen)

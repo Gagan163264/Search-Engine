@@ -75,8 +75,6 @@ int main()
         }
       }
   }
-
-  float idf;
   for(int j = 0; j<size_dbindex;j++)
   {
     if(oworddoclist[j])

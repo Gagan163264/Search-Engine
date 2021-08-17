@@ -22,7 +22,6 @@ int main()
   struct index_word* index = import_index_tomem(&size_index, index_path);
   long size_dbindex;
   struct docdet* dbindex = import_dbindex(&size_dbindex,dbindex_path);
-
   char raw_uin_str[INPUT_LIMIT];
   char raw_uin_str_cp[INPUT_LIMIT];
   printf("Search for: ");
@@ -38,39 +37,61 @@ int main()
   int owordindx;
   int temp;
   char** uin_wtable = extract_keywords(stop_db_size, stop_db_arr, raw_uin_str_cp,&kwsize);
-  char** stemmed_uin_wtable = (char**)malloc(kwsize*sizeof(char*));
+
   int* keywords = (int*)malloc(kwsize*sizeof(int));
-  int* oworddoclist = (int*)malloc(kwsize*sizeof(int));
+  int* owordsdocfreq = (int*)calloc(kwsize,sizeof(int));
+  float* oworddoclist = (float*)calloc(size_dbindex,sizeof(float));
+  char** stemmed_uin_wtable = (char**)malloc((kwsize+1)*sizeof(char*));
+  stemmed_uin_wtable[kwsize]=NULL;
 
   int odocfreq = 0;
   int odoclen = 0;
-  int nfflag = 0;
+  int idfc;
+  int odocindex;
+
   for(i = 0;uin_wtable[i]!= NULL;i++)
   {
-    nfflag = 0;
+    odocindex = 0;
+    idfc = 0;
     stemmed_uin_wtable[i]=(char*)malloc((strlen(uin_wtable[i])+1)*sizeof(char));
     strcpy(stemmed_uin_wtable[i],uin_wtable[i]);
     porter_stemmer(stemmed_uin_wtable[i]);
     keywords[i]=bin_search_struct(size_index,index,stemmed_uin_wtable[i],-1);
-
+    if(keywords[i]<0)
+      continue;
     owordindx = 0;
-    for(owordsize = 0; index[keywords[i]].doc_data[owordsize].docname != NULL; owordsize++)
-      owordindx++;
-    temp = bin_search_struct(owordindx,index,uin_wtable[i],keywords[i]);
-    oworddoclist[i] = (temp<0)?temp:bin_search_struct_2(size_dbindex, dbindex,index[keywords[i]].doc_data[temp].docname);
-    if(oworddoclist[i]>=0)
-      for(temp = 0;temp<i;temp++)
-        if(oworddoclist[i]==oworddoclist[temp])
+    for(owordsize = 0; index[keywords[i]].doc_data[owordsize].orword != NULL; owordsize++)
+      if(!strcmp(uin_wtable[i],index[keywords[i]].doc_data[owordsize].orword))
+      {
+        temp = bin_search_struct_2(size_dbindex,dbindex,index[keywords[i]].doc_data[owordsize].docname);
+        if(temp<0)
+          return 3;//database error
+        owordsdocfreq[i]++;
+        if(!oworddoclist[temp])
         {
-          nfflag=1;
-          break;
+          odocfreq++;
+          odoclen += dbindex[temp].length;
+          oworddoclist[temp]=1;
         }
-    if(!nfflag)
-    {
-      odoclen += dbindex[oworddoclist[i]].length;
-      odocfreq++;
-    }
+      }
   }
+
+  float idf;
+  for(int j = 0; j<size_dbindex;j++)
+  {
+    if(oworddoclist[j])
+      for(i = 0;uin_wtable[i]!=NULL;i++)
+      {
+        for(int iter = 0; index[keywords[i]].doc_data[iter].orword!=NULL;iter++)
+          if(!strcmp(index[keywords[i]].doc_data[iter].orword,uin_wtable[i])&&!strcmp(index[keywords[i]].doc_data[iter].docname,dbindex[j].name))
+          {
+            oworddoclist[j]+=rank(get_idf(odocfreq,owordsdocfreq[i]),index[keywords[i]].doc_data[iter].freq,dbindex[j].length,(odoclen/odocfreq));
+            break;
+          }
+      }
+      printf("Rank of %s is %f\n", dbindex[j].name, oworddoclist[j]);
+  }
+
 
   for(i = 0; stemmed_uin_wtable[i]!=NULL;i++)
   {
@@ -78,7 +99,5 @@ int main()
     puts(stemmed_uin_wtable[i]);
     printf("%d\n", keywords[i]);
   }
-
-
 
 }

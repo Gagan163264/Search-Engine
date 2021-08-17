@@ -246,16 +246,16 @@ int reversenum(int num)
   return 0;
  }
 
- struct docdet* import_dbindex(long* size, char* path)
+ struct docdet* import_dbindex(long* dabsize, char* path)
  {
    long dbsize;
-   long num;
+   long num=0;
    char* database = importdb_tomem(&dbsize, path);
-   long i;
+   long i=0;
    while(i<dbsize)
     if(database[i++]=='\n')
       num++;
-  *size = num
+  *dabsize = num;
   struct docdet* dbindex = (struct docdet*)malloc((num+1)*sizeof(struct docdet));
   dbindex[num].name = NULL;
   i = 0;
@@ -275,6 +275,8 @@ int reversenum(int num)
       dbindex[line_count].name = (char*)malloc(wsize*sizeof(char));
       dbindex[line_count].length=0;
       term = 0;
+      if(i == 1)
+        dbindex[line_count].name[lined++]=ch;
     }
     else if(ch == '|')
     {

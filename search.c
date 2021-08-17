@@ -2,6 +2,8 @@
 #include<string.h>
 #include<ctype.h>
 #include <stdlib.h>
+#include <math.h>
+
 
 #include"databasehandling.h"
 
@@ -226,6 +228,17 @@ char** extract_keywords(long stop_db_size, char** stop_db_arr, char raw_uin_str[
   return uin_wtable;
 }
 
+float get_idf(int total_docs,int docs_with)
+{
+  return (total_docs-docs_with+0.5)/(docs_with+0.5)+1;
+}
+
+float rank(float idf, int term_freq, int doclen, float avg_doclen)
+{
+  float k = 2;
+  float b  = 0.75;
+  return idf*(term_freq*(1+k))/(term_freq+k*(1-b+b*doclen/avg_doclen));
+}
 
 //-----------------------------------------porter stemmer-----------------------------------------------------------------------------------------
 int is_vowel(char* word, int index)

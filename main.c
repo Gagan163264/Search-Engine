@@ -124,6 +124,8 @@ int main()
     filematch[loopctr-1]=res;
     loopctr++;
   }
+  timer = clock() - timer;
+  double time = ((double)timer)/(CLOCKS_PER_SEC/1000000);
   if(loopctr==1)
     printf("Your search '%s' did not match any known documents\n", raw_uin_str_cp);
   else
@@ -153,9 +155,6 @@ int main()
       }
     }
   }
-  timer = clock() - timer;
-  double time = ((double)timer)/(CLOCKS_PER_SEC/1000000);
-
   printf("\nSimple search took %.1lf microseconds to return %d results\n", time, loopctr-1);
 
 }

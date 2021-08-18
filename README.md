@@ -9,8 +9,8 @@ Download all files using
 
 Add all database files in ./source
 ## Usage
-`make clean` to remove object files after compilation
-
 `make crawl` to run indexer
 
 `make run` to run search
+
+`make clean` to remove object files after compilation

@@ -15,4 +15,4 @@ Add all database files in ./source
 
 `make clean` to remove object files after compilation
 
-assuming gcc
+assuming gcc(unix only)

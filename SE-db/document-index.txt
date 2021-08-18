@@ -3,3 +3,6 @@ PES_db.csv|2011
 adb.txt|1802
 database.csv|301
 db.txt|781
+got.txt|5926
+hpgof.txt|730
+mockingbird.txt|1707

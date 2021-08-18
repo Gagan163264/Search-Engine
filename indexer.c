@@ -281,6 +281,7 @@ int main(void)
             strcpy(oword, word);
             if(word[0]&&numpr)//final word
             {
+              puts(word);
               wrdcount++;
               if(bin_search(stop_size,stop_db_arr,word,strcmp_bin)>=0)
               //{//enable for stopword isolation
@@ -329,13 +330,14 @@ int main(void)
                         substructindex--;
                       }
                       substructindex++;
+                      printf("Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n\n", de->d_name, word,oword);
+                      fprintf(outfil,"Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n", de->d_name, word,oword);
                       index[index_pos].doc_data[substructindex].orword=(char*)malloc((endvar-startvar+2)*sizeof(char));
                       index[index_pos].doc_data[substructindex].docname=(char*)malloc(check_txt*sizeof(char));
                       strcpy(index[index_pos].doc_data[substructindex].orword, oword);
                       strcpy(index[index_pos].doc_data[substructindex].docname, de->d_name);
                       index[index_pos].doc_data[substructindex].freq=1;
-                      printf("Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n\n", de->d_name, word,oword);
-                      fprintf(outfil,"Updating document list to add '%s' for existing word '%s'(unstemmed '%s')\n", de->d_name, word,oword);
+
                       break;
                     }
                     strcp = strcmp(de->d_name,index[index_pos].doc_data[sub_index_pos].docname);
@@ -343,9 +345,9 @@ int main(void)
                   }
                   if(!flipflag)
                   {
-                    index[index_pos].doc_data[sub_index_pos].freq++;
                     printf("Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
                     fprintf(outfil, "Found word '%s'(unstemmed '%s') in document '%s' at %dth position in index for the %d%s time\n", word, oword,de->d_name, index_pos,index[index_pos].doc_data[sub_index_pos].freq,(index[index_pos].doc_data[sub_index_pos].freq==1)?"st":((index[index_pos].doc_data[sub_index_pos].freq==2)?"nd":((index[index_pos].doc_data[sub_index_pos].freq==3)?"rd":"th")));
+                    index[index_pos].doc_data[sub_index_pos].freq++;
                   }
                 }
                 else
@@ -377,6 +379,8 @@ int main(void)
                     idx_size--;
                   }
                   idx_size++;
+                  printf("Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
+                  fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
                   index[idx_size].word=(char*)malloc((endvar-startvar+2)*sizeof(char));
                   strcpy(index[idx_size].word, word);
                   index[idx_size].hash_key=get_hash_key(word);
@@ -387,8 +391,6 @@ int main(void)
                   strcpy(index[idx_size].doc_data[0].docname, de->d_name);
                   index[idx_size].doc_data[1].docname=NULL;
                   index[idx_size].doc_data[0].freq=1;
-                  printf("Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
-                  fprintf(outfil,"Updating index, adding '%s'(hashkey-%lld)(unstemmed '%s') in document '%s' at position %d\n",word,index[idx_size].hash_key, oword, de->d_name, -index_pos-1);
               }
             //}//enable for stop word isolation
           }
@@ -417,12 +419,11 @@ int main(void)
       substructindex--;
     }
     substructindex++;
+    fprintf(outfil,"Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
+    printf("Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
     docindx[substructindex].name=(char*)malloc(check_txt*sizeof(char));
     strcpy(docindx[substructindex].name,de->d_name);
     docindx[substructindex].length = wrdcount;
-    fprintf(outfil,"Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
-    printf("Document %s of word-length %d completed\n",docindx[substructindex].name,wrdcount);
-
     free(fle);
   }
   printf("Search completed, index of %ld words created\n", size_index);

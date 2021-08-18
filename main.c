@@ -1,13 +1,7 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
 #include<time.h>
-
-#include"databasehandling.h"
-#include"search.h"
+#include "include.h"
 
 #define INPUT_LIMIT 500
-
 
 int main()
 {
@@ -130,29 +124,39 @@ int main()
     printf("Your search '%s' did not match any known documents\n", raw_uin_str_cp);
   else
   {
-    printf("\nTo open any of the matched documents(should have atom installed), type their position number, to end press enter: ");
-    char ch = getchar();
-    int chr = ch-'0';
-    if(ch != '\n')
-      getchar();
-    if(ch!='\n')
+    printf("\nTo open any of the matched documents(should have atom installed), type its position number or press enter to quit:");
+    int nflag = 0;
+    int chr;
+    char ch;
+    while(!nflag)
     {
-      while(ch<49||ch>57||chr>=(loopctr-1))
+      ch = getchar();
+      chr = ch-'0'-1;
+      if(ch!='\n')
       {
-        printf("\nYou have entered invalid index number, try again:");
-        ch = getchar();
-        if(ch == '\n')
-          break;
         getchar();
-        chr = ch-'0'-1;
+        while(ch<49||ch>57||chr>=(loopctr-1))
+        {
+          printf("\nYou have entered invalid index number, try again:");
+          ch = getchar();
+          if(ch == '\n')
+            break;
+          getchar();
+          chr = ch-'0'-1;
+        }
+        if(ch != '\n')
+        {
+        char* openpath = (char*)malloc((strlen(dbindex[filematch[chr]].name)+12)*sizeof(char));
+        strcpy(openpath,"atom source/");
+        strcat(openpath,dbindex[filematch[chr]].name);
+        printf("Opening %s\n", openpath);
+        system(openpath);
+        printf("Open another file?(enter key to quit):");
+        free(openpath);
+        }
       }
-      if(ch != '\n')
-      {
-      char* openpath = (char*)malloc((strlen(dbindex[filematch[chr]].name)+12)*sizeof(char));
-      strcpy(openpath,"atom source/");
-      strcat(openpath,dbindex[filematch[chr]].name);
-      system(openpath);
-      }
+      else
+        nflag = 1;
     }
   }
   printf("\nSimple search took %.1lf microseconds to return %d results\n", time, loopctr-1);

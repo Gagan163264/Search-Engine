@@ -3,9 +3,6 @@
 #include<string.h>
 #include"databasehandling.h"
 
-#define DATABASE "database.txt"
-
-
 /*Function takes long pointer(used as size output) and char pointer(contains database path) to give char pointer of file contents in RAM*/
 char* importdb_tomem(long *database_size, char *databasedb)
 {

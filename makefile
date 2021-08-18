@@ -1,5 +1,5 @@
-main.o:	main.c databasehandling.c search.c
-	@gcc -c main.c databasehandling.c search.c
+main.o:	main.c ./func/databasehandling.c ./func/search.c
+	@gcc -c main.c ./func/databasehandling.c ./func/search.c
 
 run: main.o
 	@gcc -g main.o databasehandling.o search.o -o main.out -lm
@@ -8,8 +8,8 @@ run: main.o
 
 compile: main.o
 
-indexer.o:indexer.c databasehandling.c search.c
-	@gcc -c indexer.c databasehandling.c search.c
+indexer.o:indexer.c ./func/databasehandling.c ./func/search.c
+	@gcc -c indexer.c ./func/databasehandling.c ./func/search.c
 
 crawl:indexer.o
 	@gcc -g indexer.o databasehandling.o search.o -o crawl.out -lm

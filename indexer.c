@@ -1,11 +1,6 @@
-#include <stdio.h>
 #include <dirent.h>
-#include<string.h>
-#include<stdlib.h>
-#include<ctype.h>
-#include"databasehandling.h"
-#include"search.h"
-
+#include <ctype.h>
+#include "include.h"
 
 int main(void)
 {
